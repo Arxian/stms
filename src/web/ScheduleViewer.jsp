@@ -44,10 +44,16 @@
                             <input type="hidden" name="swap" value="0">
                         </form>
                     </td>
+                    <td class="tool-td">
+                        <form method="post">
+                            <input type="submit" name="tools" value="Tools">
+                            <input type="hidden" name="swap" value="5">
+                        </form>
+                    </td>
                 </tr>
                 <%
                     if (objSelected){
-                        %><tr class="tool-tr"><td class="tool-td" colspan="4">Context Menu Goes Here</td></tr><%
+                        %><tr class="tool-tr"><td class="tool-td" colspan="5">Context Menu Goes Here</td></tr><%
                     }
 
                     if (view == 1){
