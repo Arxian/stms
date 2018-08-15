@@ -5,9 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ include file="ScheduleThinker.jsp" %>
 <%
    boolean objSelected = true; 
-   int view = 3;%>
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,10 +20,30 @@
         <div id="schedule-holder">
             <table id="top-bar" class="tool-table">
                 <tr class="tool-tr">
-                    <td class="tool-td">Daily View</td>
-                    <td class="tool-td">Weekly View</td>
-                    <td class="tool-td">Monthly View</td>
-                    <td class="tool-td">To Do List</td>
+                    <td class="tool-td">
+                        <form method="post">
+                            <input type="submit" name="daily" value="Daily View">
+                            <input type="hidden" name="swap" value="2">
+                        </form>
+                    </td>
+                    <td class="tool-td">
+                        <form method="post">
+                            <input type="submit" name="weekly" value="Weekly View">
+                            <input type="hidden" name="swap" value="1">
+                        </form>
+                    </td>
+                    <td class="tool-td">
+                        <form method="post">
+                            <input type="submit" name="monthly" value="Monthly View">
+                            <input type="hidden" name="swap" value="3">
+                        </form>
+                    </td>
+                    <td class="tool-td">
+                        <form method="post">
+                            <input type="submit" name="todo" value="To Do List">
+                            <input type="hidden" name="swap" value="0">
+                        </form>
+                    </td>
                 </tr>
                 <%
                     if (objSelected){

@@ -11,6 +11,11 @@ public final class ScheduleViewer_jsp extends org.apache.jasper.runtime.HttpJspB
 
   private static java.util.List<String> _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/ScheduleThinker.jsp");
+  }
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
@@ -44,9 +49,18 @@ public final class ScheduleViewer_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write('\n');
+      out.write('\n');
+
+  
+String swap = request.getParameter("swap");
+int view = 2;
+if (swap != null) view = Integer.parseInt(swap);
+
+      out.write('\n');
 
    boolean objSelected = true; 
-   int view = 3;
+
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
@@ -59,10 +73,30 @@ public final class ScheduleViewer_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("        <div id=\"schedule-holder\">\n");
       out.write("            <table id=\"top-bar\" class=\"tool-table\">\n");
       out.write("                <tr class=\"tool-tr\">\n");
-      out.write("                    <td class=\"tool-td\">Daily View</td>\n");
-      out.write("                    <td class=\"tool-td\">Weekly View</td>\n");
-      out.write("                    <td class=\"tool-td\">Monthly View</td>\n");
-      out.write("                    <td class=\"tool-td\">To Do List</td>\n");
+      out.write("                    <td class=\"tool-td\">\n");
+      out.write("                        <form method=\"post\">\n");
+      out.write("                            <input type=\"submit\" name=\"daily\" value=\"Daily View\">\n");
+      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"2\">\n");
+      out.write("                        </form>\n");
+      out.write("                    </td>\n");
+      out.write("                    <td class=\"tool-td\">\n");
+      out.write("                        <form method=\"post\">\n");
+      out.write("                            <input type=\"submit\" name=\"weekly\" value=\"Weekly View\">\n");
+      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"1\">\n");
+      out.write("                        </form>\n");
+      out.write("                    </td>\n");
+      out.write("                    <td class=\"tool-td\">\n");
+      out.write("                        <form method=\"post\">\n");
+      out.write("                            <input type=\"submit\" name=\"monthly\" value=\"Monthly View\">\n");
+      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"3\">\n");
+      out.write("                        </form>\n");
+      out.write("                    </td>\n");
+      out.write("                    <td class=\"tool-td\">\n");
+      out.write("                        <form method=\"post\">\n");
+      out.write("                            <input type=\"submit\" name=\"todo\" value=\"To Do List\">\n");
+      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"0\">\n");
+      out.write("                        </form>\n");
+      out.write("                    </td>\n");
       out.write("                </tr>\n");
       out.write("                ");
 
