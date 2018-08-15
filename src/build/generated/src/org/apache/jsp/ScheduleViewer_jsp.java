@@ -46,9 +46,8 @@ public final class ScheduleViewer_jsp extends org.apache.jasper.runtime.HttpJspB
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
+      out.write('\n');
+      out.write('\n');
       out.write('\n');
       out.write('\n');
 
@@ -59,7 +58,7 @@ if (swap != null) view = Integer.parseInt(swap);
 
       out.write('\n');
 
-   boolean objSelected = true; 
+   boolean objSelected = true;
 
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
@@ -67,7 +66,7 @@ if (swap != null) view = Integer.parseInt(swap);
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>Schedule Viewer</title>\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheet.css\"/>\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"popupStyle.css\"/>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <div id=\"schedule-holder\">\n");
@@ -97,12 +96,21 @@ if (swap != null) view = Integer.parseInt(swap);
       out.write("                            <input type=\"hidden\" name=\"swap\" value=\"0\">\n");
       out.write("                        </form>\n");
       out.write("                    </td>\n");
+      out.write("                    <td class=\"tool-td\">\n");
+      out.write("                        <form method=\"post\">\n");
+      out.write("                            <input type=\"submit\" name=\"tools\" value=\"Tools\">\n");
+      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"5\">\n");
+      out.write("                        </form>\n");
+      out.write("                    </td>\n");
       out.write("                </tr>\n");
       out.write("                ");
 
                     if (objSelected){
                         
-      out.write("<tr class=\"tool-tr\"><td class=\"tool-td\" colspan=\"4\">Context Menu Goes Here</td></tr>");
+      out.write("\n");
+      out.write("                        <tr class=\"tool-tr\"><td class=\"tool-td\" colspan=\"5\">Context Menu Goes Here</td></tr>\n");
+      out.write("                        <table style=\"border: 1px solid black; width:100%\"><tr><td width=\"80%\"><div id=\"schedule\">\n");
+      out.write("                        ");
 
                     }
 
@@ -118,7 +126,12 @@ if (swap != null) view = Integer.parseInt(swap);
                         
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "MonthlyView.jsp", out, true);
 
-}
+}                   
+                    if (objSelected){
+                        
+      out.write("</div></td><td style=\"width: 20%; border: 1px solid black\"></td></tr>");
+
+                    }
                 
       out.write("\n");
       out.write("            </table>\n");

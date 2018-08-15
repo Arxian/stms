@@ -3,18 +3,17 @@
     Created on : 14 Aug 2018, 9:09:23 PM
     Author     : Darien
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="ScheduleThinker.jsp" %>
 <%
-   boolean objSelected = true; 
+   boolean objSelected = true;
 %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Schedule Viewer</title>
-        <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+        <link rel="stylesheet" type="text/css" href="popupStyle.css"/>
     </head>
     <body>
         <div id="schedule-holder">
@@ -53,7 +52,10 @@
                 </tr>
                 <%
                     if (objSelected){
-                        %><tr class="tool-tr"><td class="tool-td" colspan="5">Context Menu Goes Here</td></tr><%
+                        %>
+                        <tr class="tool-tr"><td class="tool-td" colspan="5">Context Menu Goes Here</td></tr>
+                        <table style="border: 1px solid black; width:100%"><tr><td width="80%"><div id="schedule">
+                        <%
                     }
 
                     if (view == 1){
@@ -62,7 +64,11 @@
                         %><jsp:include page = "DailyView.jsp" flush = "true" /><%
                     } else if (view == 3){
                         %><jsp:include page = "MonthlyView.jsp" flush = "true" /><%
-}
+}                   
+                    if (objSelected){
+                        // To do: list all comments associated with selected event here.
+                        %></div></td><td style="width: 20%; border: 1px solid black"></td></tr><%
+                    }
                 %>
             </table>
         </div>
