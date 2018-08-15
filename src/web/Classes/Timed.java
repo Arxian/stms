@@ -12,7 +12,7 @@ public class Timed extends Event
     private Date end;
     private String type;
 
-    public Timed(Date start, Date end, String type, int eventID, String name, int priority, Subject subject, Recurring recurringEvent, String description, boolean complete, User user) {
+    public Timed(Date start, Date end, String type, int eventID, String name, int priority, Subject subject, Recurring recurringEvent, String description, boolean complete, int user) {
         super(eventID, name, priority, subject, recurringEvent, description, complete, user);
         this.start = start;
         this.end = end;

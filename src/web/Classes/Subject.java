@@ -16,6 +16,7 @@ public class Subject
         this.colour = colour;
     }
 
+  
     
     // Getters
     public int getSubjectID() {
@@ -45,4 +46,8 @@ public class Subject
 
     
     
+    public String toString()
+    {
+        return subjectID + ";" + name + ";" + colour;
+    }
 }

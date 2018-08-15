@@ -10,7 +10,7 @@ public class DatedToDo extends Event
 {
     private Date date;
 
-    public DatedToDo(Date date, int eventID, String name, int priority, Subject subject, Recurring recurringEvent, String description, boolean complete, User user) {
+    public DatedToDo(Date date, int eventID, String name, int priority, Subject subject, Recurring recurringEvent, String description, boolean complete, int user) {
         super(eventID, name, priority, subject, recurringEvent, description, complete, user);
         this.date = date;
     }

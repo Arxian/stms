@@ -7,24 +7,23 @@
 public class Recurring 
 {
     private int recurID;
-    private Every every;            // e.g. every WEEK
+    private String every;            // e.g. every WEEK
     private int defineEvery;        // e.g. every 2 WEEKs (from this month) 
     private int times;              // e.g. 2 times - every 2 WEEKs (from this month)
     private String days;            // e.g. Tue & Thurs ("2,4") - 2 times every - 2 WEEKs (from this month)
                                         // Monday = 1, Tuesday = 2, etc.
-    public enum Every
-    {
-        DAY,
-        WEEK,
-        MONTH;
-    }
+  
 
-    public Recurring(int recurID, Every every, int defineEvery, int times, String days) {
+    public Recurring(int recurID, String every, int defineEvery, int times, String days) {
         this.recurID = recurID;
         this.every = every;
         this.defineEvery = defineEvery;
         this.times = times;
         this.days = days;
+    }
+
+    public Recurring(int recurID) {
+        this.recurID = recurID;
     }
 
     
@@ -33,7 +32,7 @@ public class Recurring
         return recurID;
     }
 
-    public Every getEvery() {
+    public String getEvery() {
         return every;
     }
 
@@ -55,7 +54,7 @@ public class Recurring
         this.recurID = recurID;
     }
 
-    public void setEvery(Every every) {
+    public void setEvery(String every) {
         this.every = every;
     }
 

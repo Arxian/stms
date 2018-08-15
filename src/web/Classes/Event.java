@@ -13,11 +13,11 @@ public class Event
     private Recurring recurringEvent;
     private String description;
     private boolean complete;
-    private User eventUser;        // the user who created the event
+    private int eventUser;        // the user who created the event
    
  
     
-    public Event(int eventID, String name, int priority, Subject subject, Recurring recurringEvent, String description, boolean complete, User user) 
+    public Event(int eventID, String name, int priority, Subject subject, Recurring recurringEvent, String description, boolean complete, int user) 
     {
         this.eventID = eventID;
         this.name = name;
@@ -29,9 +29,13 @@ public class Event
         this.eventUser = user;
     }
 
+    public Event(int id) {
+        this.eventID = id;
+    }
+
   
     // Setters
-    public void setEventUser(User eventUserID) {
+    public void setEventUser(int eventUserID) {
         this.eventUser = eventUserID;
     }
     
@@ -92,7 +96,7 @@ public class Event
         return complete;
     }
 
-    public User getEventUser() {
+    public int getEventUser() {
         return eventUser;
     }
 
