@@ -7,6 +7,7 @@
 
 <table class="cal-heading-table" width="100%">
     <tr class="cal-heading">
+        <td class="cal-heading">Time</td>
         <td class="cal-heading">Monday</td>
         <td class="cal-heading">Tuesday</td>
         <td class="cal-heading">Wednesday</td>
@@ -17,9 +18,9 @@
     </tr>
     <%
         for (int i=0; i<15; i++){
-            %><tr><%
+            %><tr><td class="cal-subheading"> <%=String.format("%02d:00", i+8)%> </td><%
             for (int j=0; j<7; j++){
-            %> <td class="week-empty"> <%=String.format("%02d:00", i+8)%> </td> <%
+            %> <td class="week-empty"> </td> <%
             }
             %></tr><%
         }
