@@ -75,12 +75,13 @@
             <form action="EventController" method="post">
 
 
+                <h3>Add New Event</h3>
                 <h3>&nbsp;</h3>
                 <div class="name">
                     <input type="text" name="name" value="" placeholder="Event Name"/>
                 </div>
 
-                <h3>&nbsp;</h3>
+                <h6>&nbsp;</h6>
                 <div class="priority">
                     <label>Priority  </label>
                     <select class="prioritycmb" type="text" name="priority" value="">
@@ -91,25 +92,18 @@
                 </div>
 
 
-                <h3>&nbsp;</h3>
+                <h6>&nbsp;</h6>
                 <div class="subject">
                     <label>Subject  </label>
                     <select id="priority" class="prioritycmb" type="text" name="priority" value="">
-                        <option value="#F8AE71">INF3012S</option>
-                        <option value="#00FFFF">CSC3003S</option>
+                        <option style="background-color:yellow">INF3012S</option>
+                        <option style="background-color: lightblue">CSC3003S</option>
                     </select>
-                    <div id="colourDiv" style="background-color: blue ; padding: 10px; border: 1px solid black;"></div>
-
-                    <script>
-                        $(function () {
-                            var colour = document.getElementById("priority").value;
-                            document.getElementById("colourDiv").style.backgroundColor = colour;
-                        });
-                    </script>
+                   
                 </div> 
 
 
-                <h3>&nbsp;</h3>    
+                <h6>&nbsp;</h6>   
                 <div>
                     <label>Start  </label>
                     <input type="date" name="startDate" value="" placeholder="Start Date"/>
@@ -123,7 +117,7 @@
                 </div>   
 
 
-                <h3>&nbsp;</h3>
+                <h6>&nbsp;</h6>
                 <div>
                     <label>End  </label>
                     <input type="date" name="endDate" value="" placeholder="End Date"/>
@@ -139,7 +133,7 @@
 
 
 
-                <h3>&nbsp;</h3>
+                <h6>&nbsp;</h6>
                 <div class="description">
                     <label class="description" for="element_1">Description </label>
                     <textarea id="element_1" name="element_1" class="element textarea medium"></textarea>
@@ -148,7 +142,7 @@
 
 
 
-                <h3>&nbsp;</h3>
+                <h6>&nbsp;</h6>
                 <div>
                     <form id="recurringForm" action="#" method="POST" >
                         <div>
@@ -182,7 +176,7 @@
 
 
 
-                <h3>&nbsp;</h3>
+                <h6>&nbsp;</h6>
                 <div>
                     <form action="#" method="POST" id="autofillForm">
                         <div>
@@ -218,7 +212,7 @@
                     <script src="autofillFormJS.js"></script>
                 </div>
 
-                <h3>&nbsp;</h3>
+                <h6>&nbsp;</h6>
                 <div>
                     <span class="close">&plus;</span>
                     <%-- <input id="saveForm" class="button_text" type="submit" name="submit" value="Save Event" />--%>
