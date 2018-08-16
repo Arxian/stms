@@ -96,11 +96,16 @@
                                 <option>INF3012S<%subjectColour = "#F8AE71";%></option>
                                 <option>CSC3003S<%subjectColour = "#00FFFF";%></option>
                             </select>
+                            
                             <h3>&nbsp;</h3>
                             <div style="background-color: <%= subjectColour%> ; padding: 10px; border: 1px solid black;"></div>
 
                             <h3>&nbsp;</h3>
-                            <div>
+                        </div>    
+                            
+                          
+                        <h3>&nbsp;</h3>    
+                        <div>
                                 <label>Start  </label>
                                 <input type="date" name="startDate" value="" placeholder="Start Date"/>
                                 <vaadin-date-picker label="Pick a date">
