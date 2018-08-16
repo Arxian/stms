@@ -71,271 +71,256 @@
                 <form action="EventController" method="post">
                     <%! public String subjectColour;%>
 
-                    <form action="EventController" method="post">
+
+                    <h3>&nbsp;</h3>
+                    <div class="name">
+                        <input type="text" name="name" value="" placeholder="Event Name"/>
+                    </div>
+
+                    <h3>&nbsp;</h3>
+                    <div class="priority">
+                        <label>Priority  </label>
+                        <select class="prioritycmb" type="text" name="priority" value="">
+                            <option>Low</option>
+                            <option>Medium</option>
+                            <option>High</option>
+                        </select>
+                    </div>
+
+
+                    <h3>&nbsp;</h3>
+                    <div class="subject">
+                        <label>Subject  </label>
+                        <select class="prioritycmb" type="text" name="priority" value="">
+                            <option>INF3012S<%subjectColour = "#F8AE71";%></option>
+                            <option>CSC3003S<%subjectColour = "#00FFFF";%></option>
+                        </select>
+
                         <h3>&nbsp;</h3>
-                        <div class="name">
-                            <input type="text" name="name" value="" placeholder="Event Name"/>
+                        <div style="background-color: <%= subjectColour%> ; padding: 10px; border: 1px solid black;"></div>
+
+                        <h3>&nbsp;</h3>
+                    </div>    
+
+
+                    <h3>&nbsp;</h3>    
+                    <div>
+                        <label>Start  </label>
+                        <input type="date" name="startDate" value="" placeholder="Start Date"/>
+                        <vaadin-date-picker label="Pick a date">
+                        </vaadin-date-picker>
+
+                        <div class="control">
+                            <label for="appt-time">Time:</label>
+                            <input type="time" id="appt-time" name="startTime"
+                                   min="9:00" max="18:00" required />
                         </div>
-                        <h3>&nbsp;</h3>
-                        <div class="priority">
-                            <label>Priority  </label>
-                            <select class="prioritycmb" type="text" name="priority" value="">
-                                <option>Low</option>
-                                <option>Medium</option>
-                                <option>High</option>
-                            </select>
+                    </div>   
+
+
+                    <h3>&nbsp;</h3>
+                    <div>
+                        <label>End  </label>
+                        <input type="date" name="endDate" value="" placeholder="End Date"/>
+                        <vaadin-date-picker label="Pick a date">
+                        </vaadin-date-picker>
+
+                        <div class="control">
+                            <label for="appt-time">Time:</label>
+                            <input type="time" id="appt-time" name="endTime"
+                                   min="9:00" max="18:00" required />
                         </div>
 
+                    </div>    
 
 
 
-                        <h3>&nbsp;</h3>
-                        <div class="subject">
-                            <label>Subject  </label>
-                            <select class="prioritycmb" type="text" name="priority" value="">
-                                <option>INF3012S<%subjectColour = "#F8AE71";%></option>
-                                <option>CSC3003S<%subjectColour = "#00FFFF";%></option>
-                            </select>
-                            
-                            <h3>&nbsp;</h3>
-                            <div style="background-color: <%= subjectColour%> ; padding: 10px; border: 1px solid black;"></div>
-
-                            <h3>&nbsp;</h3>
-                        </div>    
-                            
-                          
-                        <h3>&nbsp;</h3>    
-                        <div>
-                                <label>Start  </label>
-                                <input type="date" name="startDate" value="" placeholder="Start Date"/>
-                                <vaadin-date-picker label="Pick a date">
-                                </vaadin-date-picker>
-
-                                <div class="control">
-                                    <label for="appt-time">Time:</label>
-                                    <input type="time" id="appt-time" name="startTime"
-                                           min="9:00" max="18:00" required />
-                                </div>
-                                <h3>&nbsp;</h3>
-
-                                <div>
-                                    <label>End  </label>
-                                    <input type="date" name="endDate" value="" placeholder="End Date"/>
-                                    <vaadin-date-picker label="Pick a date">
-                                    </vaadin-date-picker>
-
-                                    <div class="control">
-                                        <label for="appt-time">Time:</label>
-                                        <input type="time" id="appt-time" name="endTime"
-                                               min="9:00" max="18:00" required />
-                                    </div>
-                                    <h3>&nbsp;</h3>
-                                </div>    
-
-                                <div class="description">
-                                    <label class="description" for="element_1">Description </label>
-                                    <textarea id="element_1" name="element_1" class="element textarea medium"></textarea>
-                                </div>
-
-                                <h3>&nbsp;</h3>
-                                <div>
-
-                                    <form action="#" method="POST" id="recurringForm">
-                                        <div>
-                                            <input type="checkbox" id="trigger" name="question"> Recurring
-                                        </div>
-
-                                        <p id="recurringText">Event repeats every</p> <input id="every" type="number" min="0" value="1" SIZE="3" width="5px"> <select id="defineEvery" class="prioritycmb" type="text" name="cmbDefineEvery" value="">
-                                            <option>days</option>
-                                            <option>weeks</option>
-                                            <option>months</option>
-                                        </select>
-                                        <p id="onDays">on days</p>
-                                        <p id="daysText"><input type="checkbox" id="sun" name="chbMon"> <input type="checkbox" id="mon" name="chbMon"> <input type="checkbox" id="tue" name="chbMon"> <input type="checkbox" id="wed" name="chbMon"> <input type="checkbox" id="thurs" name="chbMon"> <input type="checkbox" id="fri" name="chbMon"> <input type="checkbox" id="sat" name="chbMon"></p>
-                                        <p id="daysLabel"> S    M    T    W    T    F    S </p>
-                                        <script>
-                                            $(function () {
-                                                var checkbox = $("#trigger");
-                                                var hidden = $("#recurringText");
-                                                var populate = $("#every");
-                                                var defineEvery = $("#defineEvery");
-                                                var daysText = $("#daysText");
-                                                var daysLabel = $("#daysLabel");
-                                                var mon = $("#mon");
-                                                var tue = $("#tue");
-                                                var wed = $("#wed");
-                                                var thurs = $("#thurs");
-                                                var fri = $("#fri");
-                                                var sat = $("#sat");
-                                                var sun = $("#sun");
-                                                var onDays = $("#onDays");
-                                                hidden.hide();
-                                                populate.hide();
-                                                defineEvery.hide();
-                                                populate.hide();
-                                                defineEvery.hide();
-                                                daysText.hide();
-                                                daysLabel.hide();
-                                                mon.hide();
-                                                tue.hide();
-                                                wed.hide();
-                                                thurs.hide();
-                                                fri.hide();
-                                                onDays.hide();
-                                                checkbox.change(function () {
-                                                    if (checkbox.is(':checked')) {
-                                                        hidden.show();
-                                                        populate.show();
-                                                        defineEvery.show();
-                                                        daysText.show();
-                                                        daysLabel.show();
-                                                        mon.show();
-                                                        tue.show();
-                                                        wed.show();
-                                                        thurs.show();
-                                                        fri.show();
-                                                        sat.show();
-                                                        sun.show();
-                                                        onDays.show();
-                                                        //populate.val("Dude, this input got populated!");
-                                                    } else {
-                                                        hidden.hide();
-                                                        populate.hide();
-                                                        defineEvery.hide();
-                                                        populate.hide();
-                                                        defineEvery.hide();
-                                                        daysText.hide();
-                                                        daysLabel.hide();
-                                                        mon.hide();
-                                                        tue.hide();
-                                                        wed.hide();
-                                                        thurs.hide();
-                                                        fri.hide();
-                                                        onDays.hide();
-                                                    }
-                                                });
-                                            });
-                                        </script>
-                                    </form>
-
-                                </div>
+                    <h3>&nbsp;</h3>
+                    <div class="description">
+                        <label class="description" for="element_1">Description </label>
+                        <textarea id="element_1" name="element_1" class="element textarea medium"></textarea>
+                    </div>
 
 
-                                <h3>&nbsp;</h3>
-                                <div>
-                                    <form action="#" method="POST" id="autofillForm">
-                                        <div>
-                                            <input type="checkbox" id="trigger" name="question"> Auto-fill Tasks
-                                        </div>
-
-                                        <p id="recurringText">Event repeats every</p> <input id="every" type="number" min="0" value="1" SIZE="3" width="5px"> <select id="defineEvery" class="prioritycmb" type="text" name="cmbDefineEvery" value="">
-                                            <option>days</option>
-                                            <option>weeks</option>
-                                            <option>months</option>
-                                        </select>
-                                        <script>
-                                            $(function () {
-                                                var checkbox = $("#trigger");
-                                                var hidden = $("#recurringText");
-                                                var populate = $("#every");
-                                                var defineEvery = $("#defineEvery");
-                                                hidden.hide();
-                                                populate.hide();
-                                                defineEvery.hide();
-                                                checkbox.change(function () {
-                                                    if (checkbox.is(':checked')) {
-                                                        hidden.show();
-                                                        populate.show();
-                                                        defineEvery.show();
-                                                        //populate.val("Dude, this input got populated!");
-                                                    } else {
-                                                        hidden.hide();
-                                                        populate.hide();
-                                                        defineEvery.hide();
-                                                    }
-                                                });
-                                            });
-                                        </script>
-                                    </form>
-
-                                </div>
-
-
-
-                                <h3>&nbsp;</h3>
-                                <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
-
-
-
-
-
-                                </form>
+                    <h3>&nbsp;</h3>
+                    <div>
+                        <form action="#" method="POST" id="recurringForm">
+                            <div>
+                                <input type="checkbox" id="trigger" name="question"> Recurring
                             </div>
+                            <div id="recurHidden">
 
+                                <p>Event repeats every</p> <input id="every" type="number" min="0" value="1" SIZE="3" width="5px"> <select id="defineEvery" class="prioritycmb" type="text" name="cmbDefineEvery" value="">
+                                    <option>days</option>
+                                    <option>weeks</option>
+                                    <option>months</option>
+                                </select>
+                                <p>on days</p>
+                                <input type="checkbox" id="sun" name="chbMon"> <input type="checkbox" id="mon" name="chbMon"> <input type="checkbox" id="tue" name="chbMon"> <input type="checkbox" id="wed" name="chbMon"> <input type="checkbox" id="thurs" name="chbMon"> <input type="checkbox" id="fri" name="chbMon"> <input type="checkbox" id="sat" name="chbMon">
+                                <p> S    M    T    W    T    F    S </p>
+                            </div>
+                            <script>
+                                $(function () {
+                                    var checkbox = $("#trigger");
+                                    var hidden = $("#recurHidden");
 
+                                    hidden.hide();
 
-
-
-
-
-                            <!-- Pop up Window Add Deadline -->
-                            <div id="addDeadlineModal" class="modal">
-
-                                <!-- Modal content -->
-                                <div class="modal-content">
-                                    <span class="close">&times;</span>
-                                    <form action="EventController" method="post">
-
-
-
-                                    </form>
-                                </div>
-
-
-
-
-                                <script>
-                                    // Get the modal
-                                    var modal = document.getElementById('addEventModal');
-                                    var modalDeadline = document.getElementById('addDeadlineModal');
-
-                                    // Get the button that opens the modal
-                                    var btn = document.getElementById("btnAddEvent");
-                                    var btnAddDeadline = document.getElementById("btnAddDeadline");
-
-                                    // Get the <span> element that closes the modal
-                                    var span = document.getElementsByClassName("close")[0];
-                                    var spanDeadline = document.getElementsByClassName("close")[1];
-
-                                    // When the user clicks the button, open the modal 
-                                    btn.onclick = function () {
-                                        modal.style.display = "block";
-                                    }
-
-                                    btnAddDeadline.onclick = function () {
-                                        modalDeadline.style.display = "block";
-                                    }
-
-                                    // When the user clicks on <span> (x), close the modal
-                                    span.onclick = function () {
-                                        modal.style.display = "none";
-                                    }
-
-                                    spanDeadline.onclick = function () {
-                                        modalDeadline.style.display = "none";
-                                    }
-
-                                    // When the user clicks anywhere outside of the modal, close it
-                                    window.onclick = function (event) {
-                                        if (event.target == modal) {
-                                            modal.style.display = "none";
+                                    checkbox.change(function () {
+                                        if (checkbox.is(':checked')) {
+                                            hidden.show();
+                                            //populate.val("Dude, this input got populated!");
+                                        } else {
+                                            hidden.hide();
                                         }
-                                    }
+                                    });
+                                });
+                            </script>
+                        </form>
+                    </div>
+
+
+                    <h3>&nbsp;</h3>
+                    <div>
+                        <form action="#" method="POST" id="autofillForm">
+                            <div>
+                                <input type="checkbox" id="autofillTrigger" name="chbAutofill"> Auto-fill Tasks
+                            </div>
+                            <div id="wholeAutofillForm">
+                                <div id="defaultSection">
+                                    <input id="default" type="radio" name="autofillMethod1" value="default"> Default
+
+                                    <label>Type of Task  </label>
+                                    <select id="type" class="cmbType" type="text" name="type" value="">
+                                        <option>Lecture</option>
+                                        <option>Tutorial</option>
+                                        <option>Group Meeting</option>
+                                    </select>
+                                </div>
+                                <div id="customSection">
+                                    <input id="custom" type="radio" name="autofillMethod2" value="custom"> Custom
+
+                                    <input id="hoursWork" type="number" min="0" max="30"  value="5">
+                                    <div>
+                                        <input type="checkbox" id="dispersed" name="chbDispersed"> Disperse Tasks
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                $(function () {
+                                    var autoTrig = $("#autofillTrigger");
+                                    var def = $("#default");
+                                    var custom = $("#custom");
+                                    var type = $("#type");
+                                    var customSection = $("#customSection");
+                                    var wholeAutofillForm = $("#wholeAutofillForm");
+
+                                    wholeAutofillForm.hide();
+
+                                    autoTrig.change(function () {
+                                        if (autoTrig.is(':checked')) {
+                                            def.show();
+                                            custom.show();
+                                        } else {
+                                            wholeAutofillForm.hide();
+                                        }
+                                    });
+
+                                    def.change(function () {
+                                        if (def.is(':checked')) {
+                                            type.show();
+                                            customSection.hide();
+                                        } else {
+                                            type.hide();
+                                        }
+                                    });
+
+                                    custom.change(function () {
+                                        if (custom.is(':checked')) {
+                                            customSection.show();
+                                            type.hide();
+                                        } else {
+                                            customSection.hide();
+                                        }
+                                    });
+                                });
+                            </script>
+                        </form>
+
+                    </div>
 
 
 
-                                </script>
+                    <h3>&nbsp;</h3>
+                    <div>
+                        <input id="saveForm" class="button_text" type="submit" name="submit" value="Save Event" />
+                    </div>
+
+
+                </form>
+
+            </div>
 
 
 
-                                </html>
+            <!-- Pop up Window Add Deadline -->
+            <div id="addDeadlineModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <form action="EventController" method="post">
+
+
+
+                    </form>
+                </div>
+
+
+
+
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById('addEventModal');
+                    var modalDeadline = document.getElementById('addDeadlineModal');
+
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("btnAddEvent");
+                    var btnAddDeadline = document.getElementById("btnAddDeadline");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+                    var spanDeadline = document.getElementsByClassName("close")[1];
+
+                    // When the user clicks the button, open the modal 
+                    btn.onclick = function () {
+                        modal.style.display = "block";
+                    }
+
+                    btnAddDeadline.onclick = function () {
+                        modalDeadline.style.display = "block";
+                    }
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+
+                    spanDeadline.onclick = function () {
+                        modalDeadline.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+
+
+
+                </script>
+
+                </body>
+
+                </html>
