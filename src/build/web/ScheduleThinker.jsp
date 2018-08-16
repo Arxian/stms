@@ -47,4 +47,6 @@ if (toolsActive){
 }
 
 if (swap != null) view = Integer.parseInt(swap);
+
+
 %>

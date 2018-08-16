@@ -23,7 +23,7 @@
                 if (7*i+j < monthObj.getFirstDay()-1 || 7*i+j > monthObj.getNumDays()+2){
                     %> <td class="month-nonday"> </td> <%
                 } else if (todayMonth == 7*i+j-1){
-                    %> <td class="month-today"> <%=String.format("%02d", 7*i+j-monthObj.getFirstDay()+2)%> </td> <%
+                    %> <td class="month-today"> <table><tr><td><%=String.format("%02d", 7*i+j-monthObj.getFirstDay()+2)%></td></tr> <tr><td class="event">Hand in CS Stage 3</td></tr> </table> </td> <%
                 } else {
                     %> <td class="month-empty"> <%=String.format("%02d", 7*i+j-monthObj.getFirstDay()+2)%> </td> <%
                 }
