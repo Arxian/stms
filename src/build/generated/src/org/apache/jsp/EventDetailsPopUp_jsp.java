@@ -7,30 +7,15 @@ import javax.servlet.jsp.*;
 public final class EventDetailsPopUp_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
+ public String subjectColour;
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
-
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_h_panelGroup_styleClass_rendered_layout;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_h_commandButton_value_action;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_h_form;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
-  }
-
-  public void _jspInit() {
-    _jspx_tagPool_h_panelGroup_styleClass_rendered_layout = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_h_commandButton_value_action = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_h_form = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-  }
-
-  public void _jspDestroy() {
-    _jspx_tagPool_h_panelGroup_styleClass_rendered_layout.release();
-    _jspx_tagPool_h_commandButton_value_action.release();
-    _jspx_tagPool_h_form.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -46,7 +31,7 @@ public final class EventDetailsPopUp_jsp extends org.apache.jasper.runtime.HttpJ
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html; charset=UTF-8");
+      response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -60,24 +45,335 @@ public final class EventDetailsPopUp_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("<head>\r\n");
+      out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n");
+      out.write("<style>\r\n");
+      out.write("body {font-family: Arial, Helvetica, sans-serif;}\r\n");
+      out.write("\r\n");
+      out.write("/* The Modal (background) */\r\n");
+      out.write(".modal {\r\n");
+      out.write("    display: none; /* Hidden by default */\r\n");
+      out.write("    position: fixed; /* Stay in place */\r\n");
+      out.write("    z-index: 1; /* Sit on top */\r\n");
+      out.write("    padding-top: 100px; /* Location of the box */\r\n");
+      out.write("    left: 0;\r\n");
+      out.write("    top: 0;\r\n");
+      out.write("    width: 100%; /* Full width */\r\n");
+      out.write("    height: 100%; /* Full height */\r\n");
+      out.write("    overflow: auto; /* Enable scroll if needed */\r\n");
+      out.write("    background-color: rgb(0,0,0); /* Fallback color */\r\n");
+      out.write("    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n");
+      out.write("}\r\n");
+      out.write("\r\n");
+      out.write("/* Modal Content */\r\n");
+      out.write(".modal-content {\r\n");
+      out.write("    background-color: #fefefe;\r\n");
+      out.write("    margin: auto;\r\n");
+      out.write("    padding: 20px;\r\n");
+      out.write("    border: 1px solid #888;\r\n");
+      out.write("    width: 80%;\r\n");
+      out.write("}\r\n");
+      out.write("\r\n");
+      out.write("/* The Close Button */\r\n");
+      out.write(".close {\r\n");
+      out.write("    color: #aaaaaa;\r\n");
+      out.write("    float: right;\r\n");
+      out.write("    font-size: 28px;\r\n");
+      out.write("    font-weight: bold;\r\n");
+      out.write("}\r\n");
+      out.write("\r\n");
+      out.write(".close:hover,\r\n");
+      out.write(".close:focus {\r\n");
+      out.write("    color: #000;\r\n");
+      out.write("    text-decoration: none;\r\n");
+      out.write("    cursor: pointer;\r\n");
+      out.write("}\r\n");
+      out.write("</style>\r\n");
+      out.write("</head>\r\n");
+      out.write("<body>\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n");
-      out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\"\r\n");
-      out.write("      xmlns:h=\"http://java.sun.com/jsf/html\"\r\n");
-      out.write("      xmlns:f=\"http://java.sun.com/jsf/core\">    \r\n");
-      out.write("    <head>\r\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n");
-      out.write("        <title>Edit Details Pop Up</title>\r\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheet.css\"/>\r\n");
-      out.write("    </head>\r\n");
-      out.write("    <body>\r\n");
-      out.write("        ");
-      if (_jspx_meth_h_form_0(_jspx_page_context))
-        return;
+      out.write("<!-- Add Event Button -->\r\n");
+      out.write("<div><button id=\"btnAddEvent\">Add Event</button></div>\r\n");
       out.write("\r\n");
-      out.write("    </body>\r\n");
+      out.write("<!-- Button Pop up Add Deadline -->\r\n");
+      out.write("<div><button id=\"btnAddDeadline\">Add Deadline</button></div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!-- Add Event Pop Up Form -->\r\n");
+      out.write("<div id=\"addEventModal\" class=\"modal\">\r\n");
+      out.write("\r\n");
+      out.write("  <!-- Modal content -->\r\n");
+      out.write("  <div class=\"modal-content\">\r\n");
+      out.write("      <span class=\"close\">&times;</span>\r\n");
+      out.write("    <form action=\"EventController\" method=\"post\">\r\n");
+      out.write("                            ");
+      out.write("\r\n");
+      out.write("                            \r\n");
+      out.write("                            <div class=\"name\">\r\n");
+      out.write("                                <input type=\"text\" name=\"name\" value=\"\" placeholder=\"Event Name\"/>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                            <div class=\"priority\">\r\n");
+      out.write("                                <label>Priority  </label>\r\n");
+      out.write("                                <select class=\"prioritycmb\" type=\"text\" name=\"priority\" value=\"\">\r\n");
+      out.write("                                    <option>Low</option>\r\n");
+      out.write("                                    <option>Medium</option>\r\n");
+      out.write("                                    <option>High</option>\r\n");
+      out.write("                                </select>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                            <div class=\"subject\">\r\n");
+      out.write("\r\n");
+      out.write("                                <label>Subject  </label>\r\n");
+      out.write("                                <select class=\"prioritycmb\" type=\"text\" name=\"priority\" value=\"\">\r\n");
+      out.write("                                    <option>INF3012S");
+subjectColour = "#F8AE71";
+      out.write("</option>\r\n");
+      out.write("                                    <option>CSC3003S");
+subjectColour = "#00FFFF";
+      out.write("</option>\r\n");
+      out.write("                                </select>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                <div style=\"background-color: ");
+      out.print( subjectColour);
+      out.write(" ; padding: 10px; border: 1px solid black;\"></div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                <div>\r\n");
+      out.write("                                    <label>Start  </label>\r\n");
+      out.write("                                    <input type=\"date\" name=\"startDate\" value=\"\" placeholder=\"Start Date\"/>\r\n");
+      out.write("                                    <vaadin-date-picker label=\"Pick a date\">\r\n");
+      out.write("                                    </vaadin-date-picker>\r\n");
+      out.write("                                <span>\r\n");
+      out.write("                                    <input id=\"element_3_2\" name=\"element_3_2\" class=\"element text \" size=\"2\" type=\"text\" maxlength=\"2\" value=\"\"/> :\r\n");
+      out.write("                                    <label>MM</label>\r\n");
+      out.write("                                </span>\r\n");
+      out.write("                                <span>\r\n");
+      out.write("                                    <select class=\"element select\" style=\"width:4em\" id=\"element_3_4\" name=\"element_3_4\">\r\n");
+      out.write("                                        <option value=\"AM\" >AM</option>\r\n");
+      out.write("                                        <option value=\"PM\" >PM</option>\r\n");
+      out.write("                                    </select>\r\n");
+      out.write("                                </span>\r\n");
+      out.write("                                    <div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                    <input type=\"date\" name=\"startDate\" value=\"\" placeholder=\"Start Date\"/>\r\n");
+      out.write("                                    <vaadin-date-picker label=\"Pick a date\">\r\n");
+      out.write("                                    </vaadin-date-picker>\r\n");
+      out.write("                                    <span>\r\n");
+      out.write("                                <input id=\"element_3_5\" name=\"element_3_5\" class=\"element text \" size=\"2\" type=\"text\" maxlength=\"2\" value=\"\"/> :\r\n");
+      out.write("                                    <label>HH</label>\r\n");
+      out.write("                                </span>\r\n");
+      out.write("                                    <span>\r\n");
+      out.write("                                    <input id=\"element_3_6\" name=\"element_3_6\" class=\"element text \" size=\"2\" type=\"text\" maxlength=\"2\" value=\"\"/> :\r\n");
+      out.write("                                    <label>MM</label>\r\n");
+      out.write("                                </span>\r\n");
+      out.write("                                    <span>\r\n");
+      out.write("                                    <select class=\"element select\" style=\"width:4em\" id=\"element_3_8\" name=\"element_3_8\">\r\n");
+      out.write("                                        <option value=\"AM\" >AM</option>\r\n");
+      out.write("                                        <option value=\"PM\" >PM</option>\r\n");
+      out.write("                                    </select>\r\n");
+      out.write("                                </span>\r\n");
+      out.write("\r\n");
+      out.write("                                    <div class=\"description\">\r\n");
+      out.write("                                        <label class=\"description\" for=\"element_1\">Description </label>\r\n");
+      out.write("                                            <textarea id=\"element_1\" name=\"element_1\" class=\"element textarea medium\"></textarea>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                    <div>\r\n");
+      out.write("                                <input type=\"checkbox\" name=\"recurring\" value=\"\"/>\r\n");
+      out.write("                                <label>Recurring  </label>\r\n");
+      out.write("\r\n");
+      out.write("                                        <input type=\"checkbox\" name=\"autogen\" value=\"\" class=\"checkbox\"/>\r\n");
+      out.write("                                        <label>Auto-generate Tasks  </label>\r\n");
+      out.write("\r\n");
+      out.write("                            </div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                    <input id=\"saveForm\" class=\"button_text\" type=\"submit\" name=\"submit\" value=\"Submit\" />\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("    </form>\r\n");
+      out.write("  </div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("   \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!-- Pop up Window Add Deadline -->\r\n");
+      out.write("<div id=\"addDeadlineModal\" class=\"modal\">\r\n");
+      out.write("\r\n");
+      out.write("  <!-- Modal content -->\r\n");
+      out.write("  <div class=\"modal-content\">\r\n");
+      out.write("      <span class=\"close\">&times;</span>\r\n");
+      out.write("    <form action=\"EventController\" method=\"post\">\r\n");
+      out.write("                            \r\n");
+      out.write("                            <div class=\"name\">\r\n");
+      out.write("                                <input type=\"text\" name=\"name\" value=\"\" placeholder=\"Event Name\"/>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("\r\n");
+      out.write("                            <div class=\"priority\">\r\n");
+      out.write("                                <label>Priority  </label>\r\n");
+      out.write("                                <select class=\"prioritycmb\" type=\"text\" name=\"priority\" value=\"\">\r\n");
+      out.write("                                    <option>Low</option>\r\n");
+      out.write("                                    <option>Medium</option>\r\n");
+      out.write("                                    <option>High</option>\r\n");
+      out.write("                                </select>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                            <div class=\"subject\">\r\n");
+      out.write("\r\n");
+      out.write("                                <label>Subject  </label>\r\n");
+      out.write("                                <select class=\"prioritycmb\" type=\"text\" name=\"priority\" value=\"\">\r\n");
+      out.write("                                    <option>INF3012S");
+subjectColour = "#F8AE71";
+      out.write("</option>\r\n");
+      out.write("                                    <option>CSC3003S");
+subjectColour = "#00FFFF";
+      out.write("</option>\r\n");
+      out.write("                                </select>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                <div style=\"background-color: ");
+      out.print( subjectColour);
+      out.write(" ; padding: 10px; border: 1px solid black;\"></div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                <div>\r\n");
+      out.write("                                    <label>Start  </label>\r\n");
+      out.write("                                    <input type=\"date\" name=\"startDate\" value=\"\" placeholder=\"Start Date\"/>\r\n");
+      out.write("                                    <vaadin-date-picker label=\"Pick a date\">\r\n");
+      out.write("                                    </vaadin-date-picker>\r\n");
+      out.write("                                <span>\r\n");
+      out.write("                                    <input id=\"element_3_2\" name=\"element_3_2\" class=\"element text \" size=\"2\" type=\"text\" maxlength=\"2\" value=\"\"/> :\r\n");
+      out.write("                                    <label>MM</label>\r\n");
+      out.write("                                </span>\r\n");
+      out.write("                                <span>\r\n");
+      out.write("                                    <select class=\"element select\" style=\"width:4em\" id=\"element_3_4\" name=\"element_3_4\">\r\n");
+      out.write("                                        <option value=\"AM\" >AM</option>\r\n");
+      out.write("                                        <option value=\"PM\" >PM</option>\r\n");
+      out.write("                                    </select>\r\n");
+      out.write("                                </span>\r\n");
+      out.write("                                    <div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                    <input type=\"date\" name=\"startDate\" value=\"\" placeholder=\"Start Date\"/>\r\n");
+      out.write("                                    <vaadin-date-picker label=\"Pick a date\">\r\n");
+      out.write("                                    </vaadin-date-picker>\r\n");
+      out.write("                                    <span>\r\n");
+      out.write("                                <input id=\"element_3_5\" name=\"element_3_5\" class=\"element text \" size=\"2\" type=\"text\" maxlength=\"2\" value=\"\"/> :\r\n");
+      out.write("                                    <label>HH</label>\r\n");
+      out.write("                                </span>\r\n");
+      out.write("                                    <span>\r\n");
+      out.write("                                    <input id=\"element_3_6\" name=\"element_3_6\" class=\"element text \" size=\"2\" type=\"text\" maxlength=\"2\" value=\"\"/> :\r\n");
+      out.write("                                    <label>MM</label>\r\n");
+      out.write("                                </span>\r\n");
+      out.write("                                    <span>\r\n");
+      out.write("                                    <select class=\"element select\" style=\"width:4em\" id=\"element_3_8\" name=\"element_3_8\">\r\n");
+      out.write("                                        <option value=\"AM\" >AM</option>\r\n");
+      out.write("                                        <option value=\"PM\" >PM</option>\r\n");
+      out.write("                                    </select>\r\n");
+      out.write("                                </span>\r\n");
+      out.write("\r\n");
+      out.write("                                    <div class=\"description\">\r\n");
+      out.write("                                        <label class=\"description\" for=\"element_1\">Description </label>\r\n");
+      out.write("                                            <textarea id=\"element_1\" name=\"element_1\" class=\"element textarea medium\"></textarea>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                    <div>\r\n");
+      out.write("                                <input type=\"checkbox\" name=\"recurring\" value=\"\"/>\r\n");
+      out.write("                                <label>Recurring  </label>\r\n");
+      out.write("\r\n");
+      out.write("                                        <input type=\"checkbox\" name=\"autogen\" value=\"\" class=\"checkbox\"/>\r\n");
+      out.write("                                        <label>Auto-generate Tasks  </label>\r\n");
+      out.write("\r\n");
+      out.write("                            </div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                    <input id=\"saveForm\" class=\"button_text\" type=\"submit\" name=\"submit\" value=\"Submit\" />\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("    </form>\r\n");
+      out.write("  </div>\r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("                                    \r\n");
+      out.write("<script>\r\n");
+      out.write("// Get the modal\r\n");
+      out.write("var modal = document.getElementById('addEventModal');\r\n");
+      out.write("var modalDeadline = document.getElementById('addDeadlineModal');\r\n");
+      out.write("\r\n");
+      out.write("// Get the button that opens the modal\r\n");
+      out.write("var btn = document.getElementById(\"btnAddEvent\");\r\n");
+      out.write("var btnAddDeadline = document.getElementById(\"btnAddDeadline\");\r\n");
+      out.write("\r\n");
+      out.write("// Get the <span> element that closes the modal\r\n");
+      out.write("var span = document.getElementsByClassName(\"close\")[0];\r\n");
+      out.write("var spanDeadline = document.getElementsByClassName(\"close\")[1];\r\n");
+      out.write("\r\n");
+      out.write("// When the user clicks the button, open the modal \r\n");
+      out.write("btn.onclick = function() {\r\n");
+      out.write("    modal.style.display = \"block\";\r\n");
+      out.write("}\r\n");
+      out.write("\r\n");
+      out.write("btnAddDeadline.onclick = function() {\r\n");
+      out.write("    modalDeadline.style.display = \"block\";\r\n");
+      out.write("}\r\n");
+      out.write("\r\n");
+      out.write("// When the user clicks on <span> (x), close the modal\r\n");
+      out.write("span.onclick = function() {\r\n");
+      out.write("    modal.style.display = \"none\";\r\n");
+      out.write("}\r\n");
+      out.write("\r\n");
+      out.write("spanDeadline.onclick = function() {\r\n");
+      out.write("    modalDeadline.style.display = \"none\";\r\n");
+      out.write("}\r\n");
+      out.write("\r\n");
+      out.write("// When the user clicks anywhere outside of the modal, close it\r\n");
+      out.write("window.onclick = function(event) {\r\n");
+      out.write("    if (event.target == modal) {\r\n");
+      out.write("        modal.style.display = \"none\";\r\n");
+      out.write("    }\r\n");
+      out.write("    \r\n");
+      out.write("    \r\n");
+      out.write("   \r\n");
+      out.write("}\r\n");
+      out.write("\r\n");
+      out.write("window2.onclick = function(event) {\r\n");
+      out.write("    if (event.target == modalDeadline) {\r\n");
+      out.write("        modalDeadline.style.display = \"none\";\r\n");
+      out.write("    }\r\n");
+      out.write("}\r\n");
+      out.write("</script>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -90,128 +386,5 @@ public final class EventDetailsPopUp_jsp extends org.apache.jasper.runtime.HttpJ
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
-  }
-
-  private boolean _jspx_meth_h_form_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  h:form
-    com.sun.faces.taglib.html_basic.FormTag _jspx_th_h_form_0 = (_jspx_resourceInjector != null) ? _jspx_resourceInjector.createTagHandlerInstance(com.sun.faces.taglib.html_basic.FormTag.class) : new com.sun.faces.taglib.html_basic.FormTag();
-    _jspx_th_h_form_0.setPageContext(_jspx_page_context);
-    _jspx_th_h_form_0.setParent(null);
-    _jspx_th_h_form_0.setJspId("id17");
-    int _jspx_eval_h_form_0 = _jspx_th_h_form_0.doStartTag();
-    if (_jspx_eval_h_form_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      if (_jspx_eval_h_form_0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
-        out = _jspx_page_context.pushBody();
-        _jspx_th_h_form_0.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
-        _jspx_th_h_form_0.doInitBody();
-      }
-      do {
-        out.write("\r\n");
-        out.write("            <div style=\"background-color: blanchedalmond\" >\r\n");
-        out.write("                <h1> click button for pop up</h1>\r\n");
-        out.write("               ");
-        if (_jspx_meth_h_commandButton_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_h_form_0, _jspx_page_context))
-          return true;
-        out.write(" \r\n");
-        out.write("            </div>\r\n");
-        out.write("            \r\n");
-        out.write("            ");
-        if (_jspx_meth_h_panelGroup_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_h_form_0, _jspx_page_context))
-          return true;
-        out.write("\r\n");
-        out.write("        ");
-        int evalDoAfterBody = _jspx_th_h_form_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-      if (_jspx_eval_h_form_0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE)
-        out = _jspx_page_context.popBody();
-    }
-    if (_jspx_th_h_form_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_h_form.reuse(_jspx_th_h_form_0);
-      return true;
-    }
-    _jspx_tagPool_h_form.reuse(_jspx_th_h_form_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_h_commandButton_0(javax.servlet.jsp.tagext.JspTag _jspx_th_h_form_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  h:commandButton
-    com.sun.faces.taglib.html_basic.CommandButtonTag _jspx_th_h_commandButton_0 = (_jspx_resourceInjector != null) ? _jspx_resourceInjector.createTagHandlerInstance(com.sun.faces.taglib.html_basic.CommandButtonTag.class) : new com.sun.faces.taglib.html_basic.CommandButtonTag();
-    _jspx_th_h_commandButton_0.setPageContext(_jspx_page_context);
-    _jspx_th_h_commandButton_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_h_form_0);
-    _jspx_th_h_commandButton_0.setJspId("id22");
-    _jspx_th_h_commandButton_0.setValue(org.apache.jasper.runtime.PageContextImpl.getValueExpression("Event Details", (PageContext)_jspx_page_context, java.lang.Object.class, null));
-    _jspx_th_h_commandButton_0.setAction(org.apache.jasper.runtime.PageContextImpl.getMethodExpression("#{EventDetailController.show()}", (PageContext)_jspx_page_context, null, java.lang.Object.class, new Class[] {}));
-    int _jspx_eval_h_commandButton_0 = _jspx_th_h_commandButton_0.doStartTag();
-    if (_jspx_eval_h_commandButton_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      if (_jspx_eval_h_commandButton_0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
-        out = _jspx_page_context.pushBody();
-        _jspx_th_h_commandButton_0.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
-        _jspx_th_h_commandButton_0.doInitBody();
-      }
-      do {
-        out.write("\r\n");
-        out.write("                <ajax render=\"@form\"/>\r\n");
-        out.write("                ");
-        int evalDoAfterBody = _jspx_th_h_commandButton_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-      if (_jspx_eval_h_commandButton_0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE)
-        out = _jspx_page_context.popBody();
-    }
-    if (_jspx_th_h_commandButton_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_h_commandButton_value_action.reuse(_jspx_th_h_commandButton_0);
-      return true;
-    }
-    _jspx_tagPool_h_commandButton_value_action.reuse(_jspx_th_h_commandButton_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_h_panelGroup_0(javax.servlet.jsp.tagext.JspTag _jspx_th_h_form_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  h:panelGroup
-    com.sun.faces.taglib.html_basic.PanelGroupTag _jspx_th_h_panelGroup_0 = (_jspx_resourceInjector != null) ? _jspx_resourceInjector.createTagHandlerInstance(com.sun.faces.taglib.html_basic.PanelGroupTag.class) : new com.sun.faces.taglib.html_basic.PanelGroupTag();
-    _jspx_th_h_panelGroup_0.setPageContext(_jspx_page_context);
-    _jspx_th_h_panelGroup_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_h_form_0);
-    _jspx_th_h_panelGroup_0.setJspId("id27");
-    _jspx_th_h_panelGroup_0.setLayout(org.apache.jasper.runtime.PageContextImpl.getValueExpression("block", (PageContext)_jspx_page_context, java.lang.String.class, null));
-    _jspx_th_h_panelGroup_0.setStyleClass(org.apache.jasper.runtime.PageContextImpl.getValueExpression("popup-panel-overlay", (PageContext)_jspx_page_context, java.lang.String.class, null));
-    _jspx_th_h_panelGroup_0.setRendered(org.apache.jasper.runtime.PageContextImpl.getValueExpression("#{EventDetailController.showPopup}", (PageContext)_jspx_page_context, boolean.class, null));
-    int _jspx_eval_h_panelGroup_0 = _jspx_th_h_panelGroup_0.doStartTag();
-    if (_jspx_eval_h_panelGroup_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      if (_jspx_eval_h_panelGroup_0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
-        out = _jspx_page_context.pushBody();
-        _jspx_th_h_panelGroup_0.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
-        _jspx_th_h_panelGroup_0.doInitBody();
-      }
-      do {
-        out.write("\r\n");
-        out.write("                <div class=\"popup-panel\">\r\n");
-        out.write("                    This is a pop up panel!\r\n");
-        out.write("                </div>\r\n");
-        out.write("            ");
-        int evalDoAfterBody = _jspx_th_h_panelGroup_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-      if (_jspx_eval_h_panelGroup_0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE)
-        out = _jspx_page_context.popBody();
-    }
-    if (_jspx_th_h_panelGroup_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_h_panelGroup_styleClass_rendered_layout.reuse(_jspx_th_h_panelGroup_0);
-      return true;
-    }
-    _jspx_tagPool_h_panelGroup_styleClass_rendered_layout.reuse(_jspx_th_h_panelGroup_0);
-    return false;
   }
 }
