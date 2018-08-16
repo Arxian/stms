@@ -145,25 +145,68 @@
                                             <option>weeks</option>
                                             <option>months</option>
                                         </select>
+                                        <p id="onDays">on days</p>
+                                        <p id="daysText"><input type="checkbox" id="sun" name="chbMon"> <input type="checkbox" id="mon" name="chbMon"> <input type="checkbox" id="tue" name="chbMon"> <input type="checkbox" id="wed" name="chbMon"> <input type="checkbox" id="thurs" name="chbMon"> <input type="checkbox" id="fri" name="chbMon"> <input type="checkbox" id="sat" name="chbMon"></p>
+                                        <p id="daysLabel"> S    M    T    W    T    F    S </p>
                                         <script>
                                             $(function () {
                                                 var checkbox = $("#trigger");
                                                 var hidden = $("#recurringText");
                                                 var populate = $("#every");
                                                 var defineEvery = $("#defineEvery");
+                                                var daysText = $("#daysText");
+                                                var daysLabel = $("#daysLabel");
+                                                var mon = $("#mon");
+                                                var tue = $("#tue");
+                                                var wed = $("#wed");
+                                                var thurs = $("#thurs");
+                                                var fri = $("#fri");
+                                                var sat = $("#sat");
+                                                var sun = $("#sun");
+                                                var onDays = $("#onDays");
                                                 hidden.hide();
                                                 populate.hide();
                                                 defineEvery.hide();
+                                                populate.hide();
+                                                defineEvery.hide();
+                                                daysText.hide();
+                                                daysLabel.hide();
+                                                mon.hide();
+                                                tue.hide();
+                                                wed.hide();
+                                                thurs.hide();
+                                                fri.hide();
+                                                onDays.hide();
                                                 checkbox.change(function () {
                                                     if (checkbox.is(':checked')) {
                                                         hidden.show();
                                                         populate.show();
                                                         defineEvery.show();
+                                                        daysText.show();
+                                                        daysLabel.show();
+                                                        mon.show();
+                                                        tue.show();
+                                                        wed.show();
+                                                        thurs.show();
+                                                        fri.show();
+                                                        sat.show();
+                                                        sun.show();
+                                                        onDays.show();
                                                         //populate.val("Dude, this input got populated!");
                                                     } else {
                                                         hidden.hide();
                                                         populate.hide();
                                                         defineEvery.hide();
+                                                        populate.hide();
+                                                        defineEvery.hide();
+                                                        daysText.hide();
+                                                        daysLabel.hide();
+                                                        mon.hide();
+                                                        tue.hide();
+                                                        wed.hide();
+                                                        thurs.hide();
+                                                        fri.hide();
+                                                        onDays.hide();
                                                     }
                                                 });
                                             });
