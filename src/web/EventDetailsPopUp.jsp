@@ -72,11 +72,11 @@
                     <%! public String subjectColour;%>
 
                     <form action="EventController" method="post">
-                        <h1>&nbsp;</h1>
+                        <h3>&nbsp;</h3>
                         <div class="name">
                             <input type="text" name="name" value="" placeholder="Event Name"/>
                         </div>
-                        <h1>&nbsp;</h1>
+                        <h3>&nbsp;</h3>
                         <div class="priority">
                             <label>Priority  </label>
                             <select class="prioritycmb" type="text" name="priority" value="">
@@ -85,17 +85,21 @@
                                 <option>High</option>
                             </select>
                         </div>
+
+
+
+
+                        <h3>&nbsp;</h3>
                         <div class="subject">
-                            <h1>&nbsp;</h1>
                             <label>Subject  </label>
                             <select class="prioritycmb" type="text" name="priority" value="">
                                 <option>INF3012S<%subjectColour = "#F8AE71";%></option>
                                 <option>CSC3003S<%subjectColour = "#00FFFF";%></option>
                             </select>
-                            <h1>&nbsp;</h1>
+                            <h3>&nbsp;</h3>
                             <div style="background-color: <%= subjectColour%> ; padding: 10px; border: 1px solid black;"></div>
 
-                            <h1>&nbsp;</h1>
+                            <h3>&nbsp;</h3>
                             <div>
                                 <label>Start  </label>
                                 <input type="date" name="startDate" value="" placeholder="Start Date"/>
@@ -107,7 +111,7 @@
                                     <input type="time" id="appt-time" name="startTime"
                                            min="9:00" max="18:00" required />
                                 </div>
-                                <h1>&nbsp;</h1>
+                                <h3>&nbsp;</h3>
 
                                 <div>
                                     <label>End  </label>
@@ -120,7 +124,7 @@
                                         <input type="time" id="appt-time" name="endTime"
                                                min="9:00" max="18:00" required />
                                     </div>
-                                    <h1>&nbsp;</h1>
+                                    <h3>&nbsp;</h3>
                                 </div>    
 
                                 <div class="description">
@@ -128,18 +132,89 @@
                                     <textarea id="element_1" name="element_1" class="element textarea medium"></textarea>
                                 </div>
 
-                                <h1>&nbsp;</h1>
+                                <h3>&nbsp;</h3>
                                 <div>
-                                    <input type="checkbox" name="recurring" value=""/>
-                                    <label>Recurring  </label>
-                                    <h1>&nbsp;</h1>
-                                    <input type="checkbox" name="autogen" value="" class="checkbox"/>
-                                    <label>Auto-generate Tasks  </label>
+
+                                    <form action="#" method="POST" id="recurringForm">
+                                        <div>
+                                            <input type="checkbox" id="trigger" name="question"> Recurring
+                                        </div>
+
+                                        <p id="recurringText">Event repeats every</p> <input id="every" type="number" min="0" value="1" SIZE="3" width="5px"> <select id="defineEvery" class="prioritycmb" type="text" name="cmbDefineEvery" value="">
+                                            <option>days</option>
+                                            <option>weeks</option>
+                                            <option>months</option>
+                                        </select>
+                                        <script>
+                                            $(function () {
+                                                var checkbox = $("#trigger");
+                                                var hidden = $("#recurringText");
+                                                var populate = $("#every");
+                                                var defineEvery = $("#defineEvery");
+                                                hidden.hide();
+                                                populate.hide();
+                                                defineEvery.hide();
+                                                checkbox.change(function () {
+                                                    if (checkbox.is(':checked')) {
+                                                        hidden.show();
+                                                        populate.show();
+                                                        defineEvery.show();
+                                                        //populate.val("Dude, this input got populated!");
+                                                    } else {
+                                                        hidden.hide();
+                                                        populate.hide();
+                                                        defineEvery.hide();
+                                                    }
+                                                });
+                                            });
+                                        </script>
+                                    </form>
+
+                                </div>
+
+
+                                <h3>&nbsp;</h3>
+                                <div>
+                                    <form action="#" method="POST" id="autofillForm">
+                                        <div>
+                                            <input type="checkbox" id="trigger" name="question"> Auto-fill Tasks
+                                        </div>
+
+                                        <p id="recurringText">Event repeats every</p> <input id="every" type="number" min="0" value="1" SIZE="3" width="5px"> <select id="defineEvery" class="prioritycmb" type="text" name="cmbDefineEvery" value="">
+                                            <option>days</option>
+                                            <option>weeks</option>
+                                            <option>months</option>
+                                        </select>
+                                        <script>
+                                            $(function () {
+                                                var checkbox = $("#trigger");
+                                                var hidden = $("#recurringText");
+                                                var populate = $("#every");
+                                                var defineEvery = $("#defineEvery");
+                                                hidden.hide();
+                                                populate.hide();
+                                                defineEvery.hide();
+                                                checkbox.change(function () {
+                                                    if (checkbox.is(':checked')) {
+                                                        hidden.show();
+                                                        populate.show();
+                                                        defineEvery.show();
+                                                        //populate.val("Dude, this input got populated!");
+                                                    } else {
+                                                        hidden.hide();
+                                                        populate.hide();
+                                                        defineEvery.hide();
+                                                    }
+                                                });
+                                            });
+                                        </script>
+                                    </form>
 
                                 </div>
 
 
 
+                                <h3>&nbsp;</h3>
                                 <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
 
 
