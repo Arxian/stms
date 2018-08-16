@@ -170,10 +170,7 @@ var edit = document.getElementsByClassName("btnEdit");
 var i;
 for (i = 0; i < edit.length; i++) {
     edit[i].onclick = function(ev) {
-    var w = document.getElementById('textarea');
-    
-
-    
+    var w = document.getElementById('textarea');  
   }
 }
 
@@ -211,19 +208,25 @@ function newElement() {
   
   
   document.getElementById("myTitle").value = "";
-
-  var span = document.createElement("button");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "btnRemove";
-  span.appendChild(txt);
-  listOfitems.appendChild(span);
-
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
+  
+  var btnDelete = document.createElement("button");
+  var icon = document.createTextNode("\u00D7");
+  btnDelete.className = "btnRemove";
+  btnDelete.appendChild(icon);
+  listOfitems.appendChild(btnDelete);
+  
+ var remove = document.getElementsByClassName("btnRemove");
+  for (i = 0; i < remove.length; i++) {
+    remove[i].onclick = function() {
       var div = this.parentElement;
       div.style.display = "none";
-    }
+    } ; 
   }
+
+  
+  
+  
+  
 }
 </script>
 </body>
