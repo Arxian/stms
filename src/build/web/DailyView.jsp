@@ -15,8 +15,16 @@
     </tr>
     <%
         for (int i=0; i<15; i++){
-            %><tr><td class="day-empty-1" style="width:1%"> <%=String.format("%02d:00", i+8)%> </td><td class="day-empty-1"></td></tr>
-            <tr><td class="day-empty-2" style="width:1%"> <%=String.format("%02d:30", i+8)%> </td><td class="day-empty-2"></td></tr><%
+            if (i == 1 ){
+                %><tr><td class="day-empty-1" style="width:1%"> <%=String.format("%02d:00", i+8)%> </td><td class="week-recurring">CSC3003S</td></tr>
+                <tr><td class="day-empty-2" style="width:1%"> <%=String.format("%02d:30", i+8)%> </td><td class="week-recurring" style="background-color:lightgreen">CSC3003S</td></tr><%
+            } else if (i == 9){
+                %><tr><td class="day-empty-1" style="width:1%"> <%=String.format("%02d:00", i+8)%> </td><td class="event"> Hand in CS Stage 3 </td></tr>
+                <tr><td class="day-empty-2" style="width:1%"> <%=String.format("%02d:30", i+8)%> </td><td class="day-empty-2"></td></tr><%
+            } else {
+                %><tr><td class="day-empty-1" style="width:1%"> <%=String.format("%02d:00", i+8)%> </td><td class="day-empty-1"></td></tr>
+                <tr><td class="day-empty-2" style="width:1%"> <%=String.format("%02d:30", i+8)%> </td><td class="day-empty-2"></td></tr><%
+            }
         }
     %>
 </table>
