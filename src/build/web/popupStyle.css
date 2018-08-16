@@ -89,3 +89,11 @@
     border: 1px solid black;
     box-shadow: 0px 10px 10px 0px darkgrey;
 }
+
+.event{
+    background-color: lightgrey;
+}
+
+.event:hover{
+    background-color: darkgray;
+}

@@ -4,9 +4,10 @@
     Author     : Darien
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.*, stms.*" %>
 <%@ include file="ScheduleThinker.jsp" %>
 <%
-   boolean objSelected = true;
+    boolean objSelected = true;
    
 %>
 <!DOCTYPE html>

@@ -1,8 +1,40 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
+<%@ page import = " java.util.* " %>
+
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"  >
 <style>
+.btn-group  {
+    background-color: #aaaaaa; /* Green background */
+    border: 1px black; /* Green border */
+    color: black; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group :not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group :hover {
+    background-color: lightgrayDT;
+}
+
+
+
+
 
 
 /* Style the list items */
@@ -98,13 +130,32 @@ li.checked::before {
       <option>French</option>
       <option>Information Systems</option>
   </select><br>
+ Priority: <select  id="myType" style="width:200px" >
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+  </select><br>
   Description: <input type="text" id="myDescription" placeholder="Descrition..." size ="70"><br>
   Date: <input type="text" id="myDate" placeholder="DD/MM/YYYY" style="width:200px"><br>
-  <span onclick="newElement()" class="block" >Add</span> 
-  <span onclick="newElement()" class="block" >Edit</span> <br>
-
-  <textarea  style="width:850px; background-color: lightgrey;  font-size: 18px;" rows="4" cols="50" id="textarea" disabled > Notes....</textarea>
+  
+  
+  
+  <div class="btn-group" >
+  <button onclick="newElement()" >Add</button> 
+  <button onclick="newElement()" >Edit</button> 
+  Sort by: <select  id="myFilter" style="width:200px" >
+      <option>Date</option>
+      <option>Priority</option>
+  </select><br>
 </div>
+   <div  style=" width:800px " class="tooltip"  >  
+  <textarea  style="width:850px; background-color: lightgrey;  font-size: 18px;" rows="4" cols="50" id="textarea" disabled > Notes....</textarea>
+  </div>
+   </div>
+
+  
+ 
+
     <div  style=" width:800px " class="tooltip"  >   
 <ul id="myUL">
   <li>Workout</li>
@@ -171,7 +222,7 @@ var i;
 for (i = 0; i < edit.length; i++) {
     edit[i].onclick = function(ev) {
     var w = document.getElementById('textarea');  
-  }
+  };
 }
 
 // Add a "checked" symbol when clicking on a list item
@@ -222,11 +273,6 @@ function newElement() {
       div.style.display = "none";
     } ; 
   }
-
-  
-  
-  
-  
 }
 </script>
 </body>
