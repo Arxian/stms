@@ -7,8 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    
-    
+
+
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
@@ -54,8 +54,8 @@
             }
         </style>
     </head>
-    
-    
+
+
     <body>
         <!-- Add Event Button -->
         <div><button id="btnAddEvent">Add Event</button></div>
@@ -64,8 +64,8 @@
         <div><button id="btnAddDeadline">Add Deadline</button></div>
 
     </body>
-    
-    
+
+
     <!-- Add Event Pop Up Form -->
     <div id="addEventModal" class="modal">
 
@@ -73,7 +73,6 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <form action="EventController" method="post">
-                <%! public String subjectColour;%>
 
 
                 <h3>&nbsp;</h3>
@@ -95,11 +94,18 @@
                 <h3>&nbsp;</h3>
                 <div class="subject">
                     <label>Subject  </label>
-                    <select class="prioritycmb" type="text" name="priority" value="">
-                        <option>INF3012S<%subjectColour = "#F8AE71";%></option>
-                        <option>CSC3003S<%subjectColour = "#00FFFF";%></option>
+                    <select id="priority" class="prioritycmb" type="text" name="priority" value="">
+                        <option value="#F8AE71">INF3012S</option>
+                        <option value="#00FFFF">CSC3003S</option>
                     </select>
-                    <div style="background-color: <%= subjectColour%> ; padding: 10px; border: 1px solid black;"></div>
+                    <div id="colourDiv" style="background-color: blue ; padding: 10px; border: 1px solid black;"></div>
+
+                    <script>
+                        $(function () {
+                            var colour = document.getElementById("priority").value;
+                            document.getElementById("colourDiv").style.backgroundColor = colour;
+                        });
+                    </script>
                 </div> 
 
 
@@ -112,8 +118,7 @@
 
                     <div class="control">
                         <label for="appt-time">Time:</label>
-                        <input type="time" id="appt-time" name="startTime"
-                               min="9:00" max="18:00" required />
+                        <input type="time" id="appt-time" name="startTime" required />
                     </div>
                 </div>   
 
@@ -127,8 +132,7 @@
 
                     <div class="control">
                         <label for="appt-time">Time:</label>
-                        <input type="time" id="appt-time" name="endTime"
-                               min="9:00" max="18:00" required />
+                        <input type="time" id="appt-time" name="endTime"required />
                     </div>
 
                 </div>    
@@ -142,6 +146,8 @@
                 </div>
 
 
+
+
                 <h3>&nbsp;</h3>
                 <div>
                     <form id="recurringForm" action="#" method="POST" >
@@ -151,7 +157,8 @@
                         <div id="recurHidden" margin-left="50px">
 
                             <p>Event repeats every</p> <input id="every" type="number" min="0" 
-                                                              value="1" SIZE="3" width="5px"/> <select id="defineEvery" class="prioritycmb" type="text" 
+                                                              value="1" SIZE="3" width="5px"/> <select 
+                                                              id="defineEvery" class="prioritycmb" type="text" 
                                                               name="cmbDefineEvery" value="">
                                 <option>days</option>
                                 <option>weeks</option>
@@ -159,39 +166,33 @@
                             </select>
                             <p>on days</p>
                             <input type="checkbox" id="sun" name="chbMon"/> <input type="checkbox" 
-                                                                                   id="mon" name="chbMon"/> <input type="checkbox" id="tue" name="chbMon"/> <input type="checkbox" 
-                                                                                   id="wed" name="chbMon"/> <input type="checkbox" id="thurs" name="chbMon"/> <input type="checkbox" 
-                                                                                   id="fri" name="chbMon"/> <input type="checkbox" id="sat" name="chbMon"/>
+                                                                                   id="mon" 
+                                                                                   name="chbMon"/> <input type="checkbox" id="tue" name="chbMon"/> <input type="checkbox" 
+                                                                                   id="wed" 
+                                                                                   name="chbMon"/> <input type="checkbox" id="thurs" name="chbMon"/> <input type="checkbox" 
+                                                                                   id="fri" 
+                                                                                   name="chbMon"/> <input type="checkbox" id="sat" name="chbMon"/>
                             <p> S    M    T    W    T    F    S </p>
                         </div>
-                        <script>
-                            $(function () {
-                                var checkbox = $("#trigger");
-                                var hidden = $("#recurHidden");
-                                hidden.hide();
-                                checkbox.change(function () {
-                                    if (checkbox.is(':checked')) {
-                                        hidden.show();
-                                        //populate.val("Dude, this input got populated!");
-                                    } else {
-                                        hidden.hide();
-                                    }
-                                });
-                            });
-                        </script>
+                        <script src="recurringFormJS.js"></script>
                     </form>
                 </div>
+
+
+
 
 
                 <h3>&nbsp;</h3>
                 <div>
                     <form action="#" method="POST" id="autofillForm">
                         <div>
-                            <input type="checkbox" id="autofillTrigger" name="chbAutofill"/> Auto-fill Tasks
+                            <input type="checkbox" id="autofillTrigger" name="chbAutofill"/> Auto-fill 
+                            Tasks
                         </div>
                         <div id="wholeAutofillForm">
                             <div id="defaultSection">
-                                <input id="default" type="radio" name="autofillMethod1" value="default"/> Default
+                                <input id="default" type="radio" name="autofillMethod1" 
+                                       value="default"/> Default
                                 <br>
                                 <label>Type of Task  </label>
                                 <select id="type" class="cmbType" type="text" name="type" value="">
@@ -201,62 +202,26 @@
                                 </select>
                             </div>
                             <div id="customSection">
-                                <input id="custom" type="radio" name="autofillMethod2" value="custom"/> Custom 
+                                <input id="custom" type="radio" name="autofillMethod2" 
+                                       value="custom"/> Custom 
                                 <br>
-                                <input id="hoursWork" type="number" min="0" max="30"  value="5"/>
+                                Hours of Work: <input id="hoursWork" type="number" min="0" max="30"  
+                                                      value="5"/>
                                 <div>
-                                    <input type="checkbox" id="dispersed" name="chbDispersed"/> Disperse Tasks
+                                    <input type="checkbox" id="dispersed" name="chbDispersed"/> 
+                                    Disperse Tasks
                                 </div>
                             </div>
                         </div>
-                        <script>
-                            $(function () {
-                                var autoTrig = $("#autofillTrigger");
-                                var def = $("#default");
-                                var custom = $("#custom");
-                                var type = $("#type");
-                                var customSection = $("#customSection");
-                                var wholeAutofillForm = $("#wholeAutofillForm");
 
-                                wholeAutofillForm.hide();
-
-                                autoTrig.change(function () {
-                                    if (autoTrig.is(':checked')) {
-                                        def.show();
-                                        custom.show();
-                                    } else {
-                                        wholeAutofillForm.hide();
-                                    }
-                                });
-
-                                def.change(function () {
-                                    if (def.is(':checked')) {
-                                        type.show();
-                                        customSection.hide();
-                                    } else {
-                                        type.hide();
-                                    }
-                                });
-
-                                custom.change(function () {
-                                    if (custom.is(':checked')) {
-                                        customSection.show();
-                                        type.hide();
-                                    } else {
-                                        customSection.hide();
-                                    }
-                                });
-                            });
-                        </script>
                     </form>
-
+                    <script src="autofillFormJS.js"></script>
                 </div>
-
-
 
                 <h3>&nbsp;</h3>
                 <div>
-                    <input id="saveForm" class="button_text" type="submit" name="submit" value="Save Event" />
+                    <span class="close">&plus;</span>
+                    <%-- <input id="saveForm" class="button_text" type="submit" name="submit" value="Save Event" />--%>
                 </div>
 
 
@@ -266,57 +231,57 @@
 
     </div>
 
-        <!-- Pop up Window Add Deadline -->
-        <div id="addDeadlineModal" class="modal">
+    <!-- Pop up Window Add Deadline -->
+    <div id="addDeadlineModal" class="modal">
 
-            <!-- Modal content -->
-            <div class="modal-content">
-
-            </div>
+        <!-- Modal content -->
+        <div class="modal-content">
 
         </div>
 
-        <!-- Pop up Window Code -->
-        <script>
-            // Get the modal
-            var modal = document.getElementById('addEventModal');
-            var modalDeadline = document.getElementById('addDeadlineModal');
+    </div>
 
-            // Get the button that opens the modal
-            var btn = document.getElementById("btnAddEvent");
-            var btnAddDeadline = document.getElementById("btnAddDeadline");
+    <!-- Pop up Window Code -->
+    <script>
+                        // Get the modal
+                        var modal = document.getElementById('addEventModal');
+                        var modalDeadline = document.getElementById('addDeadlineModal');
 
-            // Get the "<span" element that closes the modal
-            var spann = document.getElementsByClassName("close")[0];
-            var spanDeadline = document.getElementsByClassName("close")[1];
+                        // Get the button that opens the modal
+                        var btn = document.getElementById("btnAddEvent");
+                        var btnAddDeadline = document.getElementById("btnAddDeadline");
 
-            // When the user clicks the button, open the modal 
-            btn.onclick = function () {
-                modal.style.display = "block";
-            }
+                        // Get the "<span" element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
+                        var spanDeadline = document.getElementsByClassName("close")[1];
 
-            btnAddDeadline.onclick = function () {
-                modalDeadline.style.display = "block";
-            }
+                        // When the user clicks the button, open the modal 
+                        btn.onclick = function () {
+                            modal.style.display = "block";
+                        }
 
-            // When the user clicks on <span (x), close the modal
-            spann.onclick = function () {
-                modal.style.display = "none";
-            }
+                        btnAddDeadline.onclick = function () {
+                            modalDeadline.style.display = "block";
+                        }
 
-            spanDeadline.onclick = function () {
-                modalDeadline.style.display = "none";
-            }
+                        // When the user clicks on <span (x), close the modal
+                        span.onclick = function () {
+                            modal.style.display = "none";
+                        }
 
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
+                        spanDeadline.onclick = function () {
+                            modalDeadline.style.display = "none";
+                        }
+
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function (event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
 
 
 
-        </script>
+    </script>
 
 </html>
