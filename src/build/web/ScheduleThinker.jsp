@@ -6,8 +6,20 @@
 --%>
 
 <%
-  
-String swap = request.getParameter("swap");
+boolean toDoActive = false;
+String toDoVis = "none";
+boolean toDoReverse = true;  
 int view = 2;
+
+String swap = request.getParameter("swap");
+toDoActive = Boolean.parseBoolean(request.getParameter("todobutton"));
+
+if (toDoActive){
+    toDoVis = "show";
+    toDoReverse = false;
+} else {
+    toDoVis = "none";
+    toDoReverse = true;
+}
 if (swap != null) view = Integer.parseInt(swap);
 %>

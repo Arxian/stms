@@ -7,6 +7,7 @@
 <%@ include file="ScheduleThinker.jsp" %>
 <%
    boolean objSelected = true;
+   
 %>
 <!DOCTYPE html>
 <html>
@@ -16,6 +17,11 @@
         <link rel="stylesheet" type="text/css" href="popupStyle.css"/>
     </head>
     <body>
+        <div>
+            <div id="todo-popup" class="to-do-pop" style="display: <%=toDoVis%>">
+                <jsp:include page = "TODOLIST.jsp" flush = "true" />
+            </div>
+        </div>
         <div id="schedule-holder">
             <table id="top-bar" class="tool-table">
                 <tr class="tool-tr">
@@ -40,7 +46,8 @@
                     <td class="tool-td">
                         <form method="post">
                             <input type="submit" name="todo" value="To Do List">
-                            <input type="hidden" name="swap" value="0">
+                            <input type="hidden" name="todobutton" value="<%=toDoReverse%>">
+                            <input type="hidden" name="swap" value="<%=view%>">
                         </form>
                     </td>
                     <td class="tool-td">

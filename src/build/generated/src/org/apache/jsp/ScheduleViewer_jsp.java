@@ -46,71 +46,97 @@ public final class ScheduleViewer_jsp extends org.apache.jasper.runtime.HttpJspB
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write('\n');
+      out.write('\n');
+      out.write('\n');
+      out.write('\n');
 
-  
-String swap = request.getParameter("swap");
+boolean toDoActive = false;
+String toDoVis = "none";
+boolean toDoReverse = true;  
 int view = 2;
+
+String swap = request.getParameter("swap");
+toDoActive = Boolean.parseBoolean(request.getParameter("todobutton"));
+
+if (toDoActive){
+    toDoVis = "show";
+    toDoReverse = false;
+} else {
+    toDoVis = "none";
+    toDoReverse = true;
+}
 if (swap != null) view = Integer.parseInt(swap);
 
-      out.write('\r');
       out.write('\n');
 
    boolean objSelected = true;
+   
 
-      out.write("\r\n");
-      out.write("<!DOCTYPE html>\r\n");
-      out.write("<html>\r\n");
-      out.write("    <head>\r\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>Schedule Viewer</title>\r\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"popupStyle.css\"/>\r\n");
-      out.write("    </head>\r\n");
-      out.write("    <body>\r\n");
-      out.write("        <div id=\"schedule-holder\">\r\n");
-      out.write("            <table id=\"top-bar\" class=\"tool-table\">\r\n");
-      out.write("                <tr class=\"tool-tr\">\r\n");
-      out.write("                    <td class=\"tool-td\">\r\n");
-      out.write("                        <form method=\"post\">\r\n");
-      out.write("                            <input type=\"submit\" name=\"daily\" value=\"Daily View\">\r\n");
-      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"2\">\r\n");
-      out.write("                        </form>\r\n");
-      out.write("                    </td>\r\n");
-      out.write("                    <td class=\"tool-td\">\r\n");
-      out.write("                        <form method=\"post\">\r\n");
-      out.write("                            <input type=\"submit\" name=\"weekly\" value=\"Weekly View\">\r\n");
-      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"1\">\r\n");
-      out.write("                        </form>\r\n");
-      out.write("                    </td>\r\n");
-      out.write("                    <td class=\"tool-td\">\r\n");
-      out.write("                        <form method=\"post\">\r\n");
-      out.write("                            <input type=\"submit\" name=\"monthly\" value=\"Monthly View\">\r\n");
-      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"3\">\r\n");
-      out.write("                        </form>\r\n");
-      out.write("                    </td>\r\n");
-      out.write("                    <td class=\"tool-td\">\r\n");
-      out.write("                        <form method=\"post\">\r\n");
-      out.write("                            <input type=\"submit\" name=\"todo\" value=\"To Do List\">\r\n");
-      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"0\">\r\n");
-      out.write("                        </form>\r\n");
-      out.write("                    </td>\r\n");
-      out.write("                    <td class=\"tool-td\">\r\n");
-      out.write("                        <form method=\"post\">\r\n");
-      out.write("                            <input type=\"submit\" name=\"tools\" value=\"Tools\">\r\n");
-      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"5\">\r\n");
-      out.write("                        </form>\r\n");
-      out.write("                    </td>\r\n");
-      out.write("                </tr>\r\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("    <head>\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <title>Schedule Viewer</title>\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"popupStyle.css\"/>\n");
+      out.write("    </head>\n");
+      out.write("    <body>\n");
+      out.write("        <div>\n");
+      out.write("            <div id=\"todo-popup\" class=\"to-do-pop\" style=\"display: ");
+      out.print(toDoVis);
+      out.write("\">\n");
+      out.write("                ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "TODOLIST.jsp", out, true);
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("        <div id=\"schedule-holder\">\n");
+      out.write("            <table id=\"top-bar\" class=\"tool-table\">\n");
+      out.write("                <tr class=\"tool-tr\">\n");
+      out.write("                    <td class=\"tool-td\">\n");
+      out.write("                        <form method=\"post\">\n");
+      out.write("                            <input type=\"submit\" name=\"daily\" value=\"Daily View\">\n");
+      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"2\">\n");
+      out.write("                        </form>\n");
+      out.write("                    </td>\n");
+      out.write("                    <td class=\"tool-td\">\n");
+      out.write("                        <form method=\"post\">\n");
+      out.write("                            <input type=\"submit\" name=\"weekly\" value=\"Weekly View\">\n");
+      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"1\">\n");
+      out.write("                        </form>\n");
+      out.write("                    </td>\n");
+      out.write("                    <td class=\"tool-td\">\n");
+      out.write("                        <form method=\"post\">\n");
+      out.write("                            <input type=\"submit\" name=\"monthly\" value=\"Monthly View\">\n");
+      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"3\">\n");
+      out.write("                        </form>\n");
+      out.write("                    </td>\n");
+      out.write("                    <td class=\"tool-td\">\n");
+      out.write("                        <form method=\"post\">\n");
+      out.write("                            <input type=\"submit\" name=\"todo\" value=\"To Do List\">\n");
+      out.write("                            <input type=\"hidden\" name=\"todobutton\" value=\"");
+      out.print(toDoReverse);
+      out.write("\">\n");
+      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"");
+      out.print(view);
+      out.write("\">\n");
+      out.write("                        </form>\n");
+      out.write("                    </td>\n");
+      out.write("                    <td class=\"tool-td\">\n");
+      out.write("                        <form method=\"post\">\n");
+      out.write("                            <input type=\"submit\" name=\"tools\" value=\"Tools\">\n");
+      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"5\">\n");
+      out.write("                        </form>\n");
+      out.write("                    </td>\n");
+      out.write("                </tr>\n");
       out.write("                ");
 
                     if (objSelected){
                         
-      out.write("\r\n");
-      out.write("                        <tr class=\"tool-tr\"><td class=\"tool-td\" colspan=\"5\">Context Menu Goes Here</td></tr>\r\n");
-      out.write("                        <table style=\"border: 1px solid black; width:100%\"><tr><td width=\"80%\"><div id=\"schedule\">\r\n");
+      out.write("\n");
+      out.write("                        <tr class=\"tool-tr\"><td class=\"tool-td\" colspan=\"5\">Context Menu Goes Here</td></tr>\n");
+      out.write("                        <table style=\"border: 1px solid black; width:100%\"><tr><td width=\"80%\"><div id=\"schedule\">\n");
       out.write("                        ");
 
                     }
@@ -135,11 +161,11 @@ if (swap != null) view = Integer.parseInt(swap);
 
                     }
                 
-      out.write("\r\n");
-      out.write("            </table>\r\n");
-      out.write("        </div>\r\n");
-      out.write("    </body>\r\n");
-      out.write("</html>\r\n");
+      out.write("\n");
+      out.write("            </table>\n");
+      out.write("        </div>\n");
+      out.write("    </body>\n");
+      out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
