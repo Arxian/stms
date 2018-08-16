@@ -3,6 +3,10 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.*;
+import stms.*;
+import java.util.*;
+import stms.*;
 
 public final class ScheduleViewer_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -46,18 +50,35 @@ public final class ScheduleViewer_jsp extends org.apache.jasper.runtime.HttpJspB
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write('\n');
-      out.write('\n');
-      out.write('\n');
-      out.write('\n');
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
 
 boolean toDoActive = false;
+boolean toolsActive = false;
+
 String toDoVis = "none";
+String toolsVis = "none";
+
 boolean toDoReverse = true;  
+boolean toolsReverse = true;  
+
 int view = 2;
+List<Event> events = new ArrayList();
+Calendar cal = Calendar.getInstance();
+Date currentDate = cal.getTime();
+int todayDay = cal.get(Calendar.DAY_OF_WEEK);
+int todayMonth = cal.get(Calendar.DAY_OF_MONTH);
+int thisMonth = cal.get(Calendar.MONTH);
+Month monthObj = new Month(thisMonth, cal.get(Calendar.YEAR));
 
 String swap = request.getParameter("swap");
 toDoActive = Boolean.parseBoolean(request.getParameter("todobutton"));
+toolsActive = Boolean.parseBoolean(request.getParameter("toolsbutton"));
+
 
 if (toDoActive){
     toDoVis = "show";
@@ -66,11 +87,20 @@ if (toDoActive){
     toDoVis = "none";
     toDoReverse = true;
 }
+
+if (toolsActive){
+    toolsVis = "show";
+    toolsReverse = false;
+} else {
+    toolsVis = "none";
+    toolsReverse = true;
+}
+
 if (swap != null) view = Integer.parseInt(swap);
 
       out.write('\n');
 
-   boolean objSelected = true;
+    boolean objSelected = true;
    
 
       out.write("\n");
@@ -85,6 +115,15 @@ if (swap != null) view = Integer.parseInt(swap);
       out.write("        <div>\n");
       out.write("            <div id=\"todo-popup\" class=\"to-do-pop\" style=\"display: ");
       out.print(toDoVis);
+      out.write("\">\n");
+      out.write("                ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "TODOLIST.jsp", out, true);
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("        <div>\n");
+      out.write("            <div id=\"add-event-popup\" class=\"event-menu-pop\" style=\"display: ");
+      out.print(toolsVis);
       out.write("\">\n");
       out.write("                ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "TODOLIST.jsp", out, true);
@@ -126,7 +165,12 @@ if (swap != null) view = Integer.parseInt(swap);
       out.write("                    <td class=\"tool-td\">\n");
       out.write("                        <form method=\"post\">\n");
       out.write("                            <input type=\"submit\" name=\"tools\" value=\"Tools\">\n");
-      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"5\">\n");
+      out.write("                            <input type=\"hidden\" name=\"toolsbutton\" value=\"");
+      out.print(toolsReverse);
+      out.write("\">\n");
+      out.write("                            <input type=\"hidden\" name=\"swap\" value=\"");
+      out.print(view);
+      out.write("\">\n");
       out.write("                        </form>\n");
       out.write("                    </td>\n");
       out.write("                </tr>\n");

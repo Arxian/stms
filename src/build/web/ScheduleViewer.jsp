@@ -23,6 +23,11 @@
                 <jsp:include page = "TODOLIST.jsp" flush = "true" />
             </div>
         </div>
+        <div>
+            <div id="add-event-popup" class="event-menu-pop" style="display: <%=toolsVis%>">
+                <jsp:include page = "TODOLIST.jsp" flush = "true" />
+            </div>
+        </div>
         <div id="schedule-holder">
             <table id="top-bar" class="tool-table">
                 <tr class="tool-tr">
@@ -54,7 +59,8 @@
                     <td class="tool-td">
                         <form method="post">
                             <input type="submit" name="tools" value="Tools">
-                            <input type="hidden" name="swap" value="5">
+                            <input type="hidden" name="toolsbutton" value="<%=toolsReverse%>">
+                            <input type="hidden" name="swap" value="<%=view%>">
                         </form>
                     </td>
                 </tr>

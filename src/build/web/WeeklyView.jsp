@@ -4,9 +4,10 @@
     Author     : Darien
     This document is not a standalone file. It is included by ScheduleViewer.
 --%>
-
+<%@ include file="ScheduleThinker.jsp" %>
 <table class="cal-heading-table" width="100%">
     <tr class="cal-heading">
+        <td class="cal-heading">Sunday</td>
         <td class="cal-heading">Time</td>
         <td class="cal-heading">Monday</td>
         <td class="cal-heading">Tuesday</td>
@@ -14,13 +15,16 @@
         <td class="cal-heading">Thursday</td>
         <td class="cal-heading">Friday</td>
         <td class="cal-heading">Saturday</td>
-        <td class="cal-heading">Sunday</td>
     </tr>
     <%
         for (int i=0; i<15; i++){
             %><tr><td class="cal-subheading"> <%=String.format("%02d:00", i+8)%> </td><%
             for (int j=0; j<7; j++){
-            %> <td class="week-empty"> </td> <%
+                if (j+1 == todayDay){
+                    %> <td class="week-today"> </td> <%
+                }else{
+                    %> <td class="week-empty"> </td> <%
+                }
             }
             %></tr><%
         }

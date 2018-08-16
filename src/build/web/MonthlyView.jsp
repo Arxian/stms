@@ -5,6 +5,7 @@
     This document is not a standalone file. It is included by ScheduleViewer.
 --%>
 
+<%@ include file="ScheduleThinker.jsp" %>
 <table class="cal-heading-table" width="100%">
     <tr class="cal-heading">
         <td class="cal-heading">Monday</td>
@@ -19,7 +20,13 @@
         for (int i=0; i<5; i++){
             %><tr><%
             for (int j=0; j<7; j++){
-            %> <td class="month-empty"> <%=String.format("%02d", 7*i+j)%> </td> <%
+                if (7*i+j < monthObj.getFirstDay()-1 || 7*i+j > monthObj.getNumDays()+2){
+                    %> <td class="month-nonday"> </td> <%
+                } else if (todayMonth == 7*i+j-1){
+                    %> <td class="month-today"> <%=String.format("%02d", 7*i+j-monthObj.getFirstDay()+2)%> </td> <%
+                } else {
+                    %> <td class="month-empty"> <%=String.format("%02d", 7*i+j-monthObj.getFirstDay()+2)%> </td> <%
+                }
             }
             %></tr><%
         }
