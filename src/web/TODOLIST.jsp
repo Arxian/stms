@@ -7,60 +7,46 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"  >
 <style>
-.btn-group  {
-    background-color: #aaaaaa; /* Green background */
-    border: 1px black; /* Green border */
-    color: black; /* White text */
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    float: left; /* Float the buttons side by side */
-}
+    
+/**Group Buttons*/
+.btn{
+    background-color: #aaaaaa; 
+    border: 1px black; 
+    color: black; 
+    padding: 10px 24px; 
+    cursor: pointer; 
+    float: left; }
 
-/* Clear floats (clearfix hack) */
-.btn-group:after {
+.btn:after {
     content: "";
     clear: both;
-    display: table;
-}
+    display: table;}
 
-.btn-group :not(:last-child) {
-    border-right: none; /* Prevent double borders */
-}
+.btn:not(:last-child) {
+    border-right: none; }
 
-/* Add a background color on hover */
-.btn-group :hover {
-    background-color: lightgrayDT;
-}
+.btn:hover {
+    background-color: lightgrayDT;}
 
-
-
-
-
-
-/* Style the list items */
 li {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
   list-style-type: none;
-  background: #eee;
-  font-size: 18px;
+  background: lightgray;
+  font-size: 17px;
+  font-family: serif;
   transition: 0.2s;}
-
-/* Darker background-color on hover */
 li:hover {
-  background: burlywood;
+  background: darkgray;
   clear: both;
-}
-
-/* When clicked on, add a background color and strike out text */
+} 
 li.checked {
   background: #888;
-  color: #fff;
+  color: floralwhite;
   text-decoration: line-through;
 }
 
-/* Add a "checked" mark when clicked on */
 li.checked::before {
   content: '';
   position: absolute;
@@ -74,39 +60,28 @@ li.checked::before {
   width: 7px;
 }
 
-/* Style the close button */
 .btnRemove {
   position: absolute;
-  right:0;
-  
-  
-}
+  right:0;}
 
 .btnRemove:hover {
-  background-color: #f44336;
-  color: white;
-}
+  background-color: lightgrey;
+  color: white;}
 
-/* Style the close button */
 .btnEdit {
   position: absolute;
   right:0;
-  top:0;
-  
-  
-}
+  top:0;}
+
 .btnEdit:hover {
   background-color: #f44336;
-  color: white;
-}
+  color: white;}
 
 
-/* Clear floats after the header */
 .header:after {
   content: "";
   clear: both; 
 }
-
 .block {
     display: block;
     width: 5%;
@@ -115,6 +90,10 @@ li.checked::before {
     font-size: 16px;
     cursor: pointer;
     text-align: center;
+    
+    button{
+        border:0px;
+    }
 }
 </style>
 </head>
@@ -138,8 +117,8 @@ li.checked::before {
   Description: <input type="text" id="myDescription" placeholder="Descrition..." size ="70"><br>
   Date: <input type="text" id="myDate" placeholder="DD/MM/YYYY" style="width:200px"><br>
   
-  <div class="btn-group" >
-  <button onclick="newElement()" >Add</button> 
+  <div class="btn" >
+  <button onclick="AddTask()" >Add</button> 
   <button onclick="sort()" >Edit</button> 
   Sort by: <select onclick="sort()"  id="myFilter" style="width:200px" >
       <option>Date</option>
@@ -152,7 +131,7 @@ li.checked::before {
    </div>
 
     <div  style=" width:800px " class="tooltip"  >   
-<ul id="myUL">
+<ul id="TODOLIST">
   <li>Workout</li>
   <li class="checked">Clean my room</li>
   <li>Assignment 1</li>
@@ -188,7 +167,7 @@ var elementsList = document.getElementsByTagName("li");
 for (var i = 0; i < elementsList.length; i++) { 
   var btnDelete = document.createElement("button");
   var btnEdit = document.createElement("button");
-  var icon = document.createTextNode("\u00D7");
+  var icon = document.createTextNode("\u232B");
   var icon2 = document.createTextNode("\u270E");
   btnDelete.className = "btnRemove";
   btnEdit.className = "btnEdit";
@@ -212,8 +191,6 @@ for (i = 0; i < remove.length; i++) {
   }
 }
 
-
-
 var edit = document.getElementsByClassName("btnEdit");
 var i;
 for (i = 0; i < edit.length; i++) {
@@ -222,10 +199,7 @@ for (i = 0; i < edit.length; i++) {
   };
 }
 
-// Add a "checked" symbol when clicking on a list item
-
-
-var myArray = ["Date: 08/03/18 \nPriority: High \nType: Course 1 \nDescription: Include all items in the rubric on vula.", "Date: 09/04/18 \nPriority: Low \nType: Course 2 \nDescription: Invite Stella over to help with the assignment", "Date: 10/07/18 \nPriority: Medium \nType: Course 3 \nDescription:  We are supposed to use blue pens only.", "Date: 11/11/18 \nPriority: High \nType: Course 5 \nDescription:  We should make sure we put the bluew tip on."];    
+var myArray = ["Date: 08/03/18 \nPriority: High \nType: Course 1 \nDescription: Include all items in the rubric on vula.", "Date: 09/04/18 \nPriority: Low \nType: Course 2 \nDescription: Invite Stella over to help with the assignment", "Date: 10/07/18 \nPriority: Medium \nType: Course 3 \nDescription:  We are supposed to use blue pens only.", "Date: 11/11/18 \nPriority: High \nType: Course 5 \nDescription:  We should make sure we put the bluew tip on.", "Date: 016/10/18 \nPriority: Low \nType: Course 7 \nDescription: Make sure I round up all my figures."];    
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
@@ -246,10 +220,7 @@ function sort1(){
     alert("To be implemented after Stage 3 when we have set up the database. Users will be allowed to sort existing items in their to do list.");   
 }
 
-
-
-// Create a new list item when clicking on the "Add" button
-function newElement() {
+function AddTask() {
   var listOfitems = document.createElement("li");
   
   var myTitle = document.getElementById("myTitle").value;
@@ -265,16 +236,16 @@ function newElement() {
   
   listOfitems.appendChild(nodeTitle);
   if (myTitle === '') {
-    alert("You must write something!");
+    alert("You need to input a title in order for you to add a new Task.");
   } else {
-    document.getElementById("myUL").appendChild(listOfitems);
+    document.getElementById("TODOLIST").appendChild(listOfitems);
   }
   
   
   document.getElementById("myTitle").value = "";
   
   var btnDelete = document.createElement("button");
-  var icon = document.createTextNode("\u00D7");
+  var icon = document.createTextNode("\u232B");
   btnDelete.className = "btnRemove";
   btnDelete.appendChild(icon);
   listOfitems.appendChild(btnDelete);
