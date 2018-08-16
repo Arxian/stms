@@ -138,23 +138,18 @@ li.checked::before {
   Description: <input type="text" id="myDescription" placeholder="Descrition..." size ="70"><br>
   Date: <input type="text" id="myDate" placeholder="DD/MM/YYYY" style="width:200px"><br>
   
-  
-  
   <div class="btn-group" >
   <button onclick="newElement()" >Add</button> 
-  <button onclick="newElement()" >Edit</button> 
-  Sort by: <select  id="myFilter" style="width:200px" >
+  <button onclick="sort()" >Edit</button> 
+  Sort by: <select onclick="sort()"  id="myFilter" style="width:200px" >
       <option>Date</option>
       <option>Priority</option>
   </select><br>
 </div>
    <div  style=" width:800px " class="tooltip"  >  
-  <textarea  style="width:850px; background-color: lightgrey;  font-size: 18px;" rows="4" cols="50" id="textarea" disabled > Notes....</textarea>
+  <textarea  style="width:795px; background-color: lightgrey;  font-size: 18px;" rows="4" cols="50" id="textarea" disabled > Notes....</textarea>
   </div>
    </div>
-
-  
- 
 
     <div  style=" width:800px " class="tooltip"  >   
 <ul id="myUL">
@@ -217,6 +212,8 @@ for (i = 0; i < remove.length; i++) {
   }
 }
 
+
+
 var edit = document.getElementsByClassName("btnEdit");
 var i;
 for (i = 0; i < edit.length; i++) {
@@ -226,14 +223,30 @@ for (i = 0; i < edit.length; i++) {
 }
 
 // Add a "checked" symbol when clicking on a list item
+
+
+var myArray = ["Date: 08/03/18 \nPriority: High \nType: Course 1 \nDescription: Include all items in the rubric on vula.", "Date: 09/04/18 \nPriority: Low \nType: Course 2 \nDescription: Invite Stella over to help with the assignment", "Date: 10/07/18 \nPriority: Medium \nType: Course 3 \nDescription:  We are supposed to use blue pens only.", "Date: 11/11/18 \nPriority: High \nType: Course 5 \nDescription:  We should make sure we put the bluew tip on."];    
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
     //var x = ev.target.tagName.value;
-    document.getElementById("textarea").innerHTML = "Date: 08/03/18 \nType: Course 1 \nDescription: Include all items in the rubric on vula.";
+    var randomValue = myArray[Math.floor(Math.random() * myArray.length)];
+    document.getElementById("textarea").innerHTML = randomValue;
   }
 }, false);
+
+function sort(){
+   
+    alert("To be implemented after Stage 3 when we have set up the database. Users will be allowed to Edit existing items in their to do list.");   
+}
+
+function sort1(){
+   
+    alert("To be implemented after Stage 3 when we have set up the database. Users will be allowed to sort existing items in their to do list.");   
+}
+
+
 
 // Create a new list item when clicking on the "Add" button
 function newElement() {
