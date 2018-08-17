@@ -129,22 +129,6 @@
 
 
                 <h6>&nbsp;</h6>
-                <div>
-                    <label>End  </label>
-                    <input type="date" name="endDate" value="" placeholder="End Date"/>
-                    <vaadin-date-picker label="Pick a date">
-                    </vaadin-date-picker>
-
-                    <div class="control">
-                        <label for="appt-time">Time:</label>
-                        <input type="time" id="appt-time" name="endTime"required />
-                    </div>
-
-                </div>    
-
-
-
-                <h6>&nbsp;</h6>
                 <div class="description">
                     <label class="description" for="element_1">Description </label>
                     <textarea id="element_1" name="element_1" class="element textarea medium"></textarea>
