@@ -2,7 +2,7 @@
     Document   : addProcess
     Created on : 15 Aug 2018, 1:30:02 AM
     Author     : Kim
-    Pop up window for adding an event
+    Pop up window for adding a deadline
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -60,7 +60,7 @@
 
     <body>
         <!-- Add Event Button -->
-        <div><button id="btnAddEvent">Add Event</button></div>
+        <div><button id="btnAddEvent">Add Deadline</button></div>
 
     
 
@@ -76,7 +76,7 @@
             <form action="EventController" method="post">
 
 
-                <h3>Add New Event</h3>
+                <h3>Add New Deadline</h3>
                 <h3>&nbsp;</h3>
                 <div class="name">
                     <input type="text" name="name" value="" placeholder="Event Name"/>
