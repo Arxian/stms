@@ -2,6 +2,7 @@
     Document   : addProcess
     Created on : 15 Aug 2018, 1:30:02 AM
     Author     : Kim
+    Pop up window for adding an event
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,6 +21,7 @@
                 position: fixed; /* Stay in place */
                 z-index: 1; /* Sit on top */
                 padding-top: 100px; /* Location of the box */
+                padding-bottom: 100px;
                 left: 0;
                 top: 0;
                 width: 100%; /* Full width */
@@ -60,8 +62,7 @@
         <!-- Add Event Button -->
         <div><button id="btnAddEvent">Add Event</button></div>
 
-        <!-- Button Pop up Add Deadline -->
-        <div><button id="btnAddDeadline">Add Deadline</button></div>
+    
 
     </body>
 
@@ -91,6 +92,16 @@
                     </select>
                 </div>
 
+                <h6>&nbsp;</h6>
+                 <div id="defaultSection" style = "display:none">
+                                
+                                <label>Type of Task  </label>
+                                <select id="type" class="cmbType" type="text" name="type" value="">
+                                    <option>Lecture</option>
+                                    <option>Tutorial</option>
+                                    <option>Group Meeting</option>
+                                </select>
+                            </div>
 
                 <h6>&nbsp;</h6>
                 <div class="subject">
@@ -146,9 +157,9 @@
                 <div>
                     <form id="recurringForm" action="#" method="POST" >
                         <div>
-                            <input type="checkbox" id="trigger" name="question"/> Recurring
+                            <input type="checkbox" id="recurTrigger" name="question" onclick="hideShowRecurringForm()"/> Recurring
                         </div>
-                        <div id="recurHidden" margin-left="50px">
+                        <div id="recurForm" margin-left="50px" style = "display:none">
 
                             <p>Event repeats every</p> <input id="every" type="number" min="0" 
                                                               value="1" SIZE="3" width="5px"/> <select 
@@ -168,8 +179,21 @@
                                                                                    name="chbMon"/> <input type="checkbox" id="sat" name="chbMon"/>
                             <p> S    M    T    W    T    F    S </p>
                         </div>
-                        <script src="recurringFormJS.js"></script>
                     </form>
+                    
+                    <script>
+                        function hideShowRecurringForm()
+                        {
+                            if(document.getElementById('recurTrigger').checked)
+                            {
+                                document.getElementById('recurForm').style.display = 'block';
+                            }
+                            else
+                            {
+                                document.getElementById('recurForm').style.display = 'none';
+                            }
+                        }
+                    </script>
                 </div>
 
 
@@ -180,56 +204,45 @@
                 <div>
                     <form action="#" method="POST" id="autofillForm">
                         <div>
-                            <input type="checkbox" id="autofillTrigger" name="chbAutofill"/> Auto-fill 
+                            <input type="checkbox" id="autofillTrigger" name="chbAutofill" onclick="hideShowAutofillSettings()"/> Auto-fill 
                             Tasks
                         </div>
-                        <div id="wholeAutofillForm">
-                            <div id="defaultSection">
-                                <input id="default" type="radio" name="autofillMethod1" 
-                                       value="default"/> Default
-                                <br>
-                                <label>Type of Task  </label>
-                                <select id="type" class="cmbType" type="text" name="type" value="">
-                                    <option>Lecture</option>
-                                    <option>Tutorial</option>
-                                    <option>Group Meeting</option>
-                                </select>
-                            </div>
-                            <div id="customSection">
-                                <input id="custom" type="radio" name="autofillMethod2" 
-                                       value="custom"/> Custom 
-                                <br>
+                        <h8>&nbsp;</h8>
+                        <div id="wholeAutofillForm" style = "display:none">
+                          
                                 Hours of Work: <input id="hoursWork" type="number" min="0" max="30"  
                                                       value="5"/>
                                 <div>
+                                    <h8>&nbsp;</h8>
                                     <input type="checkbox" id="dispersed" name="chbDispersed"/> 
                                     Disperse Tasks
                                 </div>
-                            </div>
                         </div>
 
                     </form>
-                    <script src="autofillFormJS.js"></script>
+                    <script>
+                        function hideShowAutofillSettings()
+                        {
+                            if(document.getElementById('autofillTrigger').checked)
+                            {
+                                document.getElementById('wholeAutofillForm').style.display = 'block';
+                            }
+                            else
+                            {
+                                document.getElementById('wholeAutofillForm').style.display = 'none';
+                            }
+                        }
+                     
+                    </script>
                 </div>
 
                 <h6>&nbsp;</h6>
                 <div>
                     <span class="close">&plus;</span>
-                    <%-- <input id="saveForm" class="button_text" type="submit" name="submit" value="Save Event" />--%>
                 </div>
 
-
+<h1>&nbsp;</h1>
             </form>
-
-        </div>
-
-    </div>
-
-    <!-- Pop up Window Add Deadline -->
-    <div id="addDeadlineModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
 
         </div>
 
@@ -239,23 +252,16 @@
     <script>
                         // Get the modal
                         var modal = document.getElementById('addEventModal');
-                        var modalDeadline = document.getElementById('addDeadlineModal');
 
                         // Get the button that opens the modal
                         var btn = document.getElementById("btnAddEvent");
-                        var btnAddDeadline = document.getElementById("btnAddDeadline");
 
                         // Get the "<span" element that closes the modal
                         var span = document.getElementsByClassName("close")[0];
-                        var spanDeadline = document.getElementsByClassName("close")[1];
 
                         // When the user clicks the button, open the modal 
                         btn.onclick = function () {
                             modal.style.display = "block";
-                        }
-
-                        btnAddDeadline.onclick = function () {
-                            modalDeadline.style.display = "block";
                         }
 
                         // When the user clicks on <span (x), close the modal
@@ -263,9 +269,6 @@
                             modal.style.display = "none";
                         }
 
-                        spanDeadline.onclick = function () {
-                            modalDeadline.style.display = "none";
-                        }
 
                         // When the user clicks anywhere outside of the modal, close it
                         window.onclick = function (event) {

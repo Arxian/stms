@@ -103,7 +103,7 @@ if (swap != null) view = Integer.parseInt(swap);
       out.write('\r');
       out.write('\n');
 
-    boolean objSelected = true;
+    boolean objSelected = false;
    
 
       out.write("\r\n");
@@ -163,6 +163,9 @@ if (swap != null) view = Integer.parseInt(swap);
       out.write("\">\r\n");
       out.write("                                ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "EventDetailsPopUp.jsp", out, true);
+      out.write("\r\n");
+      out.write("                                ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "DeadlineDetailsPopUp.jsp", out, true);
       out.write("\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");

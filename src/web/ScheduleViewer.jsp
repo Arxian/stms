@@ -7,7 +7,7 @@
 <%@page import="java.util.*, stms.*" %>
 <%@ include file="ScheduleThinker.jsp" %>
 <%
-    boolean objSelected = true;
+    boolean objSelected = false;
    
 %>
 <!DOCTYPE html>
@@ -55,6 +55,7 @@
                         <div>
                             <div id="add-event-popup" class="event-menu-pop" style="display: <%=toolsVis%>">
                                 <jsp:include page = "EventDetailsPopUp.jsp" flush = "true" />
+                                <jsp:include page = "DeadlineDetailsPopUp.jsp" flush = "true" />
                             </div>
                         </div>
                     </td>

@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/EventDetailsPopUp.jsp</file>
-            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/index.html</file>
-            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/TODOLIST.jsp</file>
-            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/Classes/EventController.java</file>
+            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/DailyView.jsp</file>
+            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/MonthlyView.jsp</file>
+            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/popupStyle.css</file>
             <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/ScheduleViewer.jsp</file>
-            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/LoginPage.jsp</file>
+            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/WeeklyView.jsp</file>
         </group>
     </open-files>
 </project-private>
