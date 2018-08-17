@@ -78,7 +78,6 @@
                 <h3>&nbsp;</h3>
                 
 
-                <h6>&nbsp;</h6>
                 <div class="description">
                     <label class="description" for="element_1">Comment </label>
                     <textarea id="element_1" name="element_1" class="element textarea medium" placeholder="Enter comment here..."></textarea>
@@ -105,7 +104,7 @@
                         var modal = document.getElementById('addEventModal');
 
                         // Get the button that opens the modal
-                        var btn = document.getElementById("btnAddEvent");
+                        var btn = document.getElementById("btnAddComment");
 
                         // Get the "<span" element that closes the modal
                         var span = document.getElementsByClassName("close")[0];
