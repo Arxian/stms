@@ -241,7 +241,7 @@
                         var modal = document.getElementById('addEventModal');
 
                         // Get the button that opens the modal
-                        var btn = document.getElementById("btnAddEvent");
+                        var btn = document.getElementById("btnAddDeadline");
 
                         // Get the "<span" element that closes the modal
                         var span = document.getElementsByClassName("close")[0];
