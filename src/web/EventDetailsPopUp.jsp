@@ -60,8 +60,7 @@
         <!-- Add Event Button -->
         <div><button id="btnAddEvent">Add Event</button></div>
 
-        <!-- Button Pop up Add Deadline -->
-        <div><button id="btnAddDeadline">Add Deadline</button></div>
+    
 
     </body>
 

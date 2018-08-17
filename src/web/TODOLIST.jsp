@@ -102,7 +102,7 @@ li.checked::before {
 <div id="myDIV" class="header">
   <h2>My To Do List</h2>
   Title: <input type="text" id="myTitle" placeholder="Title..." size ="77" ><br>
-  Type: <select  id="myType" style="width:200px" >
+  Subject: <select  id="myType" style="width:200px" >
       <option>Maths</option>
       <option>Computer Science</option>
       <option>English</option>
