@@ -7,7 +7,7 @@
 <%@page import="java.util.*, stms.*" %>
 <%@ include file="ScheduleThinker.jsp" %>
 <%
-    boolean objSelected = false;
+    boolean objSelected = true;
    
 %>
 <!DOCTYPE html>
@@ -56,6 +56,7 @@
                             <div id="add-event-popup" class="event-menu-pop" style="display: <%=toolsVis%>">
                                 <jsp:include page = "EventDetailsPopUp.jsp" flush = "true" />
                                 <jsp:include page = "DeadlineDetailsPopUp.jsp" flush = "true" />
+                                <jsp:include page = "CommentInputPopUp.jsp" flush = "true" />
                             </div>
                         </div>
                     </td>
@@ -69,7 +70,7 @@
                 <%
                     if (objSelected){
                         %>
-                        <tr class="tool-tr"><td class="tool-td" colspan="5">Context Menu Goes Here</td></tr>
+                        <tr class="tool-tr"><td class="tool-td" colspan="5">Context Menu</td></tr>
                         </table>
                         <table style="border: 1px solid black; width:100%"><tr><td width="80%"><div id="schedule">
                         <%
@@ -84,7 +85,16 @@
 }                   
                     if (objSelected){
                         // To do: list all comments associated with selected event here.
-                        %></div></td><td style="width: 20%; border: 1px solid black"></td></tr><%
+                        %></div></td>
+                                <td style="width: 20%; border: 1px solid black">
+                                    <table>
+                                        <tr><td>List of details</td></tr>
+                                        <tr><td>Associated with</td></tr>
+                                        <tr><td>Selected timeslot</td></tr>
+                                        <tr><td>Goes here</td></tr>
+                                    </table>
+                                </td>
+                            </tr><%
                     }
                 %>
             </table>

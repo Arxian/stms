@@ -41,15 +41,15 @@
             }
 
             /* The Close Button */
-            .close {
+            .close-com {
                 color: #aaaaaa;
                 float: right;
                 font-size: 28px;
                 font-weight: bold;
             }
 
-            .close:hover,
-            .close:focus {
+            .close-com:hover,
+            .close-com:focus {
                 color: #000;
                 text-decoration: none;
                 cursor: pointer;
@@ -65,11 +65,11 @@
 
 
     <!-- Add Event Pop Up Form -->
-    <div id="addEventModal" class="modal">
+    <div id="addCommentModal" class="modal">
 
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close-com">&times;</span>
             <form action="EventController" method="post">
 
 
@@ -87,7 +87,7 @@
                 
                 <h6>&nbsp;</h6>
                 <div>
-                    <span class="close">&plus;</span>
+                    <span class="close-com">&plus;</span>
                 </div>
 
 
@@ -101,29 +101,29 @@
     <!-- Pop up Window Code -->
     <script>
                         // Get the modal
-                        var modal = document.getElementById('addEventModal');
+                        var modalCom = document.getElementById('addCommentModal');
 
                         // Get the button that opens the modal
                         var btn = document.getElementById("btnAddComment");
 
                         // Get the "<span" element that closes the modal
-                        var span = document.getElementsByClassName("close")[0];
+                        var spanCom = document.getElementsByClassName("close-com")[0];
 
                         // When the user clicks the button, open the modal 
                         btn.onclick = function () {
-                            modal.style.display = "block";
+                            modalCom.style.display = "block";
                         }
 
                         // When the user clicks on <span (x), close the modal
-                        span.onclick = function () {
-                            modal.style.display = "none";
+                        spanCom.onclick = function () {
+                            modalCom.style.display = "none";
                         }
 
 
                         // When the user clicks anywhere outside of the modal, close it
                         window.onclick = function (event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
+                            if (event.target == modalCom) {
+                                modalCom.style.display = "none";
                             }
                         }
 
