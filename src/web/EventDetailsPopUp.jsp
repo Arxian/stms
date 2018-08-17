@@ -241,13 +241,12 @@
                     <span class="close">&plus;</span>
                 </div>
 
-
+<h1>&nbsp;</h1>
             </form>
 
         </div>
 
     </div>
-<h1>&nbsp;</h1>
 
     <!-- Pop up Window Code -->
     <script>

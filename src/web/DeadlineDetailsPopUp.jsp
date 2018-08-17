@@ -161,7 +161,7 @@
                                                                                    name="chbMon"/> <input type="checkbox" id="thurs" name="chbMon"/> <input type="checkbox" 
                                                                                    id="fri" 
                                                                                    name="chbMon"/> <input type="checkbox" id="sat" name="chbMon"/>
-                            <p> S    M    T    W    T    F    S </p>
+                            <p> S     M     T     W     T     F     S </p>
                         </div>
                     </form>
                     
@@ -225,13 +225,15 @@
                     <span class="close">&plus;</span>
                 </div>
 
+                
+                <h1>&nbsp;</h1>
 
             </form>
 
         </div>
 
     </div>
-<h1>&nbsp;</h1>
+
 
     <!-- Pop up Window Code -->
     <script>
