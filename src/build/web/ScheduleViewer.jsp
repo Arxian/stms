@@ -17,17 +17,7 @@
         <title>Schedule Viewer</title>
         <link rel="stylesheet" type="text/css" href="popupStyle.css"/>
     </head>
-    <body>
-        <div>
-            <div id="todo-popup" class="to-do-pop" style="display: <%=toDoVis%>">
-                <jsp:include page = "TODOLIST.jsp" flush = "true" />
-            </div>
-        </div>
-        <div>
-            <div id="add-event-popup" class="event-menu-pop" style="display: <%=toolsVis%>">
-                <jsp:include page = "TODOLIST.jsp" flush = "true" />
-            </div>
-        </div>
+    <body>        
         <div id="schedule-holder">
             <table id="top-bar" class="tool-table">
                 <tr class="tool-tr">
@@ -62,12 +52,24 @@
                             <input type="hidden" name="toolsbutton" value="<%=toolsReverse%>">
                             <input type="hidden" name="swap" value="<%=view%>">
                         </form>
+                        <div>
+                            <div id="add-event-popup" class="event-menu-pop" style="display: <%=toolsVis%>">
+                                <jsp:include page = "EventDetailsPopUp.jsp" flush = "true" />
+                            </div>
+                        </div>
                     </td>
                 </tr>
+                            
+            <div>
+                <div id="todo-popup" class="to-do-pop" style="display: <%=toDoVis%>">
+                    <jsp:include page = "TODOLIST.jsp" flush = "true" />
+                </div>
+            </div>
                 <%
                     if (objSelected){
                         %>
                         <tr class="tool-tr"><td class="tool-td" colspan="5">Context Menu Goes Here</td></tr>
+                        </table>
                         <table style="border: 1px solid black; width:100%"><tr><td width="80%"><div id="schedule">
                         <%
                     }

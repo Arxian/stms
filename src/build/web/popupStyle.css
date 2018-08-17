@@ -68,6 +68,29 @@
     height: 75px;
 }
 
+.week-recurring-today{
+    border: 1px solid black;
+    background-color: green;
+    width: 14.2%;
+    height: 75px;
+}
+
+
+.week-recurring:hover{
+    border: 1px solid black;
+    background-color: lightgreen;
+    width: 14.2%;
+    height: 75px;
+}
+
+
+.week-recurring-today:hover{
+    border: 1px solid black;
+    background-color: lightgreen;
+    width: 14.2%;
+    height: 75px;
+}
+
 .week-today {
     border: 1px solid black;
     background-color: white;
@@ -85,6 +108,34 @@
 .day-empty-2{
     border: 1px solid black;
     background-color: white;
+    width: 14.2%;
+    height: 75px;
+}
+
+.day-recurring-1{
+    border: 1px solid black;
+    background-color: darkgreen;
+    width: 14.2%;
+    height: 75px;
+}
+
+.day-recurring-1:hover{
+    border: 1px solid black;
+    background-color: lightgreen;
+    width: 14.2%;
+    height: 75px;
+}
+
+.day-recurring-2{
+    border: 1px solid black;
+    background-color: green;
+    width: 14.2%;
+    height: 75px;
+}
+
+.day-recurring-2:hover{
+    border: 1px solid black;
+    background-color: lightgreen;
     width: 14.2%;
     height: 75px;
 }

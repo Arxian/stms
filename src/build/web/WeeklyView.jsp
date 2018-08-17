@@ -22,7 +22,7 @@
             for (int j=0; j<7; j++){
                 if (j+1 == todayDay){
                     if (i == 1){
-                        %> <td class="week-recurring" style="background-color:lightgreen">CSC3003S</td> <%
+                        %> <td class="week-recurring-today">CSC3003S</td> <%
                     } else if (i == 9){
                         %> <td class="week-today"><div class="event"> Hand in CS Stage 3</div> </td> <%
                     } else{
