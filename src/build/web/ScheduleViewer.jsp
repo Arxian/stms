@@ -87,11 +87,11 @@
                         // To do: list all comments associated with selected event here.
                         %></div></td>
                                 <td style="width: 20%; border: 1px solid black">
-                                    <table>
-                                        <tr><td>List of details</td></tr>
-                                        <tr><td>Associated with</td></tr>
-                                        <tr><td>Selected timeslot</td></tr>
-                                        <tr><td>Goes here</td></tr>
+                                    <table style="width:100%; height:100%">
+                                        <tr><td style="background-color: lightgrey">Hand in CS Stage 3</td></tr>
+                                        <tr><td>17/08/2018, 17:00</td></tr>
+                                        <tr><td>Check the Vula assignment for the reqs.</td></tr>
+                                        <tr><td>(Due in: [way too soon])</td></tr>
                                     </table>
                                 </td>
                             </tr><%
