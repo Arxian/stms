@@ -4,10 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/DailyView.jsp</file>
+            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/EventDetailsPopUp.jsp</file>
             <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/MonthlyView.jsp</file>
             <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/popupStyle.css</file>
             <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/ScheduleViewer.jsp</file>
             <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/WeeklyView.jsp</file>
+            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/ScheduleThinker.jsp</file>
+            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/src/java/stms/Month.java</file>
+            <file>file:/C:/Users/Darien/Documents/NetBeansProjects/STMS/stms/src/web/CommentInputPopUp.jsp</file>
         </group>
     </open-files>
 </project-private>

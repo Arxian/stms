@@ -103,7 +103,7 @@ if (swap != null) view = Integer.parseInt(swap);
       out.write('\r');
       out.write('\n');
 
-    boolean objSelected = false;
+    boolean objSelected = true;
    
 
       out.write("\r\n");
@@ -114,7 +114,11 @@ if (swap != null) view = Integer.parseInt(swap);
       out.write("        <title>Schedule Viewer</title>\r\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"popupStyle.css\"/>\r\n");
       out.write("    </head>\r\n");
-      out.write("    <body>        \r\n");
+      out.write("    <body>\r\n");
+      out.write("        ");
+      out.print(request.getParameter("roles"));
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("        <div id=\"schedule-holder\">\r\n");
       out.write("            <table id=\"top-bar\" class=\"tool-table\">\r\n");
       out.write("                <tr class=\"tool-tr\">\r\n");
@@ -189,7 +193,7 @@ if (swap != null) view = Integer.parseInt(swap);
                     if (objSelected){
                         
       out.write("\r\n");
-      out.write("                        <tr class=\"tool-tr\"><td class=\"tool-td\" colspan=\"5\">Context Menu Goes Here</td></tr>\r\n");
+      out.write("                        <tr class=\"tool-tr\"><td class=\"tool-td\" colspan=\"5\">Context Menu</td></tr>\r\n");
       out.write("                        </table>\r\n");
       out.write("                        <table style=\"border: 1px solid black; width:100%\"><tr><td width=\"80%\"><div id=\"schedule\">\r\n");
       out.write("                        ");
@@ -212,7 +216,16 @@ if (swap != null) view = Integer.parseInt(swap);
                     if (objSelected){
                         // To do: list all comments associated with selected event here.
                         
-      out.write("</div></td><td style=\"width: 20%; border: 1px solid black\"></td></tr>");
+      out.write("</div></td>\r\n");
+      out.write("                                <td style=\"width: 20%; border: 1px solid black\">\r\n");
+      out.write("                                    <table style=\"width:100%; height:100%\">\r\n");
+      out.write("                                        <tr><td style=\"background-color: lightgrey\">Hand in CS Stage 3</td></tr>\r\n");
+      out.write("                                        <tr><td>17/08/2018, 17:00</td></tr>\r\n");
+      out.write("                                        <tr><td>Check the Vula assignment for the reqs.</td></tr>\r\n");
+      out.write("                                        <tr><td>(Due in: [way too soon])</td></tr>\r\n");
+      out.write("                                    </table>\r\n");
+      out.write("                                </td>\r\n");
+      out.write("                            </tr>");
 
                     }
                 

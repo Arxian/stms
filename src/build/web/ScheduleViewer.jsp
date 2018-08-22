@@ -17,7 +17,9 @@
         <title>Schedule Viewer</title>
         <link rel="stylesheet" type="text/css" href="popupStyle.css"/>
     </head>
-    <body>        
+    <body>
+        <%=request.getParameter("roles")%>
+
         <div id="schedule-holder">
             <table id="top-bar" class="tool-table">
                 <tr class="tool-tr">
